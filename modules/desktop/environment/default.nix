@@ -4,6 +4,14 @@
     services.xserver = {
       xkb.layout = "us";
       xkb.options = "ctrl:nocaps";
+
+      # libinput = {
+      #   enable = true;
+      #   touchpad = {
+      #     middleEmulation = false;
+      #     buttonMapping = "1 0 3";
+      #   };
+      # };
     };
   };
 

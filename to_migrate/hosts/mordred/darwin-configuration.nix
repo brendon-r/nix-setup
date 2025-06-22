@@ -15,6 +15,6 @@
   home-manager.backupFileExtension = "backup";
   home-manager.users.henrysipp = {
     imports = [inputs.self.homeModules.darwin-desktop];
-    config.home.stateVersion = "25.11";
+    config.home.stateVersion = "25.05";
   };
 }

@@ -1,5 +1,5 @@
 {...}: {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
+  flake.modules.nixos.gnome = {pkgs, ...}: {
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
     # Configure dconf settings using the proper NixOS module

@@ -34,10 +34,10 @@
     enable = true;
     settings = {
       preload = [
-        "~/Pictures/Wallpapers/leaf.png"
+        "~/Pictures/Wallpapers/regolith_1.png"
       ];
       wallpaper = [
-        "DP-1,~/Pictures/Wallpapers/leaf.png"
+        "DP-1,~/Pictures/Wallpapers/regolith_1.png"
       ];
     };
   };
@@ -99,6 +99,8 @@
         gaps_in = 8;
         gaps_out = 16;
         border_size = 2;
+        col.active_border = "rgba(333333ee)"
+        col.inactive_border = "rgba(333333ee)"
         resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";

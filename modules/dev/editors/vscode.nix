@@ -5,8 +5,13 @@
     nixos.dev = {
     };
 
-    homeManager.dev = {
-      programs.vscode.enable = true;
+    homeManager.dev = {pkgs, ...}: {
+      programs.vscode = {
+        enable = true;
+        extensions = with pkgs.vscode-extensions; [
+          vscodevim.vim
+        ];
+      };
     };
   };
 }

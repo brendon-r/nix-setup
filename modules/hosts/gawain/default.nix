@@ -5,6 +5,7 @@
       [
         base
         desktop
+        plasma
         dev
         games
         shell

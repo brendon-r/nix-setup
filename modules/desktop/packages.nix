@@ -11,15 +11,20 @@
     };
 
     services.flatpak.enable = true;
+    services.upower.enable = true;
 
     environment.systemPackages = with pkgs; [
       brightnessctl
+      btop
+      powertop
       cifs-utils
       ffmpeg
       htop
       killall
       neofetch
       pavucontrol
+
+      slack
     ];
   };
 }

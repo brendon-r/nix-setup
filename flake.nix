@@ -18,6 +18,9 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";
+    hyprland.url = "github:hyprwm/Hyprland";
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

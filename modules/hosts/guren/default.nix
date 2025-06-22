@@ -10,6 +10,8 @@
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
         base
         desktop
+        containers
+        hyprland
         dev
         games
         shell
@@ -24,6 +26,7 @@
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
             base
             desktop
+            hyprland
             dev
             games
             nvim
