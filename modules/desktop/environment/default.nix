@@ -35,7 +35,6 @@
 
       # media
       vlc
-      flameshot
 
       # development
       vscode

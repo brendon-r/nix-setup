@@ -13,6 +13,10 @@
           ignore_empty_input = true;
         };
 
+        auth = {
+          fingerprint.enabled = true;
+        };
+
         background = {
           monitor = "";
           path = "/home/henry/wallpaper/fields.jpg";

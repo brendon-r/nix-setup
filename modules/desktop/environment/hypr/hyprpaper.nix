@@ -3,7 +3,9 @@
     pkgs,
     perSystem,
     ...
-  }: {
+  }: let 
+    wallpaper = "~/Pictures/Wallpapers/mountains.jpg";
+  in {
     home.file = {
       "Pictures/Wallpapers" = {
         source = ../../../../config/wallpaper;
@@ -15,10 +17,10 @@
       enable = true;
       settings = {
         preload = [
-          "~/Pictures/Wallpapers/regolith_2.jpg"
+          wallpaper
         ];
         wallpaper = [
-          "eDP-1,~/Pictures/Wallpapers/regolith_2.jpg"
+          "eDP-1,${wallpaper}"
         ];
       };
     };

@@ -18,9 +18,9 @@
         "$&" = "override";
 
         general = {
-          gaps_in = 4;
+          gaps_in = 2;
           gaps_out = 4;
-          border_size = 2;
+          border_size = 3;
           "col.active_border" = "rgba(33ccffee)";
           "col.inactive_border" = "rgb(333333)";
           resize_on_border = true;
@@ -29,8 +29,8 @@
         };
 
         decoration = {
-          rounding = 12;
-          rounding_power = 4;
+          rounding = 0;
+          rounding_power = 0;
           active_opacity = 1;
           inactive_opacity = 0.7;
           fullscreen_opacity = 1;
