@@ -4,16 +4,22 @@
     ags.url = "github:Aylur/ags";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
+
+    # Fix: Use release-25.05 branch for Home Manager to match Nixpkgs
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     import-tree.url = "github:vic/import-tree";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-webapps.url = "github:TLATER/nix-webapps";
-    nixpkgs.url = "github:/nixos/nixpkgs/nixos-unstable";
+
+    # Keep using stable 25.05 as your base
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-unstable.url = "github:/nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     nixvim.url = "github:nix-community/nixvim";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
@@ -21,8 +27,12 @@
     hyprland.url = "github:hyprwm/Hyprland";
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
-
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];

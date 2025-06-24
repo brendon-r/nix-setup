@@ -15,6 +15,7 @@
       ++ config.flake.modules.nixosUsers.henry.imports
       ++ [
         {
+          home-manager.backupFileExtension = "backup";
           home-manager.users.henry.nixpkgs.config.allowUnfree = true;
         }
         {

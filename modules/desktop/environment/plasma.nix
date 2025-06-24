@@ -1,4 +1,4 @@
-{...}: {
+{inputs, ...}: {
   flake.modules.nixos.plasma = {pkgs, ...}: {
     services = {
       desktopManager.plasma6.enable = true;
@@ -22,5 +22,28 @@
       wayland-utils # Wayland utilities
       wl-clipboard # Command-line copy/paste utilities for Wayland
     ];
+  };
+
+  flake.modules.homeManager.plasma = {pkgs, ...}: {
+    #     imports = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+
+    #     progams.plasma = {
+    #       enable = true;
+    #       shortcuts = {
+    #         kwin = {
+    #           "Expose" = "Meta";
+    #           "Switch to Desktop 2" = "Meta+2";
+    # #       Switch to Desktop 3=Meta+3,Meta+3,Switch to Desktop 3
+    # #       Switch to Desktop 1=Meta+1,Meta+1,Switch to Desktop 1
+    # #       Switch to Desktop 4=Meta+4,Meta+4,Switch to Desktop 4
+    # #       Switch to Desktop 5=Meta+5,Meta+5,Switch to Desktop 5
+    # #       Window to Desktop 1=Meta+Shift+1,Meta+Shift+1,Window to Desktop 1
+    # #       Window to Desktop 2=Meta+Shift+2,Meta+Shift+2,Window to Desktop 2
+    # #       Window to Desktop 3=Meta+Shift+3,Meta+Shift+3,Window to Desktop 3
+    # #       Window to Desktop 4=Meta+Shift+4,Meta+Shift+4,Window to Desktop 4
+    # #       Window to Desktop 5=Meta+Shift+5,Meta+Shift+5,Window to Desktop 5
+    #         };
+    #       };
+    #     };
   };
 }
