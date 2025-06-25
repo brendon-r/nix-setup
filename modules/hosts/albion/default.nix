@@ -18,8 +18,7 @@
             base
             darwin-desktop
             shell
-            nvim
-            # nixvim
+            nixvim
           ];
         }
       ];

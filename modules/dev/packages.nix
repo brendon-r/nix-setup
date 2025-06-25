@@ -1,9 +1,6 @@
 {...}: {
   flake.modules.nixos.dev = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      # Version control
-      gh
-
       # Code formatting
       alejandra
 
@@ -14,7 +11,9 @@
       ripgrep
 
       # System utilities
+      direnv
       curl
+      unzip
       wget
 
       # Editors

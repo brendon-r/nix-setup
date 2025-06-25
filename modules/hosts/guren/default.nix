@@ -29,7 +29,7 @@
             hyprland
             dev
             games
-            nvim
+            nixvim
             shell
           ];
         }
@@ -37,6 +37,9 @@
 
     hardware.graphics.enable = true;
     services.fwupd.enable = true;
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
+    services.blueman.enable = true;
 
     # Use power-profiles-daemon instead of TLP
     services.power-profiles-daemon.enable = true;

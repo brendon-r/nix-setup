@@ -24,6 +24,9 @@
       neofetch
       pavucontrol
 
+      slurp
+      grim
+
       slack
     ];
   };

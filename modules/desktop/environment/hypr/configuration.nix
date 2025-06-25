@@ -11,15 +11,15 @@
       portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
 
       settings = {
-        "$terminal" = "alacritty";
+        "$terminal" = "ghostty";
         "$mod" = "SUPER";
         "$fileManager" = "dolphin";
         "$menu" = "wofi --show drun";
         "$&" = "override";
 
         general = {
-          gaps_in = 2;
-          gaps_out = 4;
+          gaps_in = 8;
+          gaps_out = 16;
           border_size = 3;
           "col.active_border" = "rgba(33ccffee)";
           "col.inactive_border" = "rgb(333333)";
@@ -29,8 +29,8 @@
         };
 
         decoration = {
-          rounding = 0;
-          rounding_power = 0;
+          rounding = 8;
+          rounding_power = 4;
           active_opacity = 1;
           inactive_opacity = 0.7;
           fullscreen_opacity = 1;
@@ -225,6 +225,7 @@
           "$mod SHIFT, 0, movetoworkspace, 10"
           "$mod, S, togglespecialworkspace, magic"
           "$mod SHIFT, S, movetoworkspace, special:magic"
+          ",Print, exec, grim -g \"$(slurp -w 0)\" - | wl-copy"
         ];
 
         binde = [

@@ -3,6 +3,7 @@
     imports = [
       inputs.nixvim.homeManagerModules.nixvim
     ];
+    
     programs.nixvim = {
       enable = true;
 
@@ -17,15 +18,14 @@
         number = true;
       };
 
+      colorschemes.everforest.enable = true;
+
       plugins = {
         web-devicons.enable = true;
         bufferline.enable = true;
-        treesitter = {
-          enable = true;
-        };
-        which-key = {
-          enable = true;
-        };
+        nix.enable = true;
+        treesitter.enable = true;
+        which-key.enable = true;
         telescope = {
           enable = true;
           keymaps = {
@@ -72,12 +72,15 @@
           };
           servers = {
             ts_ls.enable = true;
+            ruby_lsp.enable = true;
+            ruby_lsp.package = null;
+            # elixirls.enable = true;
+            lexical.enable = true;
             eslint.enable = true;
           };
         };
       };
 
-      colorschemes.catppuccin.enable = true;
     };
   };
 }

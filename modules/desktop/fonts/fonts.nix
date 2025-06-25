@@ -15,13 +15,13 @@
         unpackPhase = ''
           unzip $src
         '';
-         
+
         installPhase = ''
           mkdir -p $out/share/fonts/opentype
           # The fonts are extracted to berkeley-mono/ subdirectory
           cp berkeley-mono/*.otf $out/share/fonts/opentype/
         '';
-        
+
         meta = {
           description = "Berkeley Mono typeface family";
           longDescription = ''
