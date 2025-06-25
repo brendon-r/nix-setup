@@ -3,7 +3,7 @@
     pkgs,
     perSystem,
     ...
-  }: let 
+  }: let
     wallpaper = "~/Pictures/Wallpapers/mountains.jpg";
   in {
     home.file = {
