@@ -2,11 +2,16 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.omarchy;
+in {
   home.file = {
     ".config/waybar/" = {
       source = ../../config/waybar;
       recursive = true;
+    };
+    ".config/waybar/theme.css" = {
+      source = ../../config/themes/${cfg.theme}/waybar.css;
     };
   };
 
@@ -146,15 +151,15 @@
             performance = "󰡴";
           };
         };
-        "custom/dropbox" = {
-          format = "";
-          on-click = "nautilus ~/Dropbox";
-          exec = "dropbox-cli status";
-          return-type = "text";
-          interval = 5;
-          tooltip = true;
-          tooltip-format = "{}";
-        };
+        # "custom/dropbox" = {
+        #   format = "";
+        #   on-click = "nautilus ~/Dropbox";
+        #   exec = "dropbox-cli status";
+        #   return-type = "text";
+        #   interval = 5;
+        #   tooltip = true;
+        #   tooltip-format = "{}";
+        # };
       }
     ];
   };

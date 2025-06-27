@@ -6,13 +6,29 @@
   cfg = config.omarchy;
 in {
   home.file = {
-    ".config/wofi/" = {
-      source = ../../config/wofi;
-      recursive = true;
-    };
-    ".config/wofi/wofi.css" = {
+    ".config/wofi/style.css" = {
       source = ../../config/themes/${cfg.theme}/wofi.css;
     };
   };
-  programs.wofi.enable = true;
+
+  programs.wofi = {
+    enable = true;
+    settings = {
+      width = 600;
+      height = 350;
+      location = "center";
+      show = "drun";
+      prompt = "Search...";
+      filter_rate = 100;
+      allow_markup = true;
+      no_actions = true;
+      halign = "fill";
+      orientation = "vertical";
+      content_halign = "fill";
+      insensitive = true;
+      allow_images = true;
+      image_size = 40;
+      gtk_dark = true;
+    };
+  };
 }

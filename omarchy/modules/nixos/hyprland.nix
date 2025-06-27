@@ -13,9 +13,4 @@ inputs: {
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
     config.common.default = "*";
   };
-
-  services.greetd = {
-    enable = true;
-    settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-  };
 }

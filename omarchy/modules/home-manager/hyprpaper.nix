@@ -15,7 +15,7 @@
 
   # Safe access with fallback
   selected_wallpaper = builtins.elemAt (wallpapers.${cfg.theme}) 0;
-  selected_wallpaper_path = "~/Pictures/Wallpapers/${cfg.theme}/${selected_wallpaper}";
+  selected_wallpaper_path = "~/Pictures/Wallpapers/${selected_wallpaper}";
 in {
   home.file = {
     "Pictures/Wallpapers" = {

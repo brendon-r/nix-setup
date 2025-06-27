@@ -60,31 +60,9 @@
       }: {
         options.omarchy = {
           theme = lib.mkOption {
-            type = lib.types.enum ["tokyo-night" "kanagawa" "catppuccin"];
+            type = lib.types.enum ["tokyo-night" "kanagawa" "everforest"];
             default = "tokyo-night";
             description = "Theme to use for Omarchy configuration";
-          };
-
-          wallpaper = {
-            enable = lib.mkOption {
-              type = lib.types.bool;
-              default = true;
-              description = "Whether to enable wallpaper management";
-            };
-
-            monitor = lib.mkOption {
-              type = lib.types.str;
-              default = "eDP-1";
-              description = "Monitor to set wallpaper on";
-            };
-          };
-
-          hyprland = {
-            enable = lib.mkOption {
-              type = lib.types.bool;
-              default = true;
-              description = "Whether to enable Hyprland configuration";
-            };
           };
         };
       };
