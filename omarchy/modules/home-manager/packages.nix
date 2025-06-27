@@ -11,7 +11,8 @@
   programs.vscode = {
     enable = true;
     userSettings = {
-      "workbench.colorTheme" = "Everforest Dark";
+      "workbench.colorTheme" = "Tokyo Night";
+      # "workbench.colorTheme" = "Everforest Dark";
     };
     extensions = with pkgs.vscode-extensions;
       [
@@ -22,6 +23,12 @@
           publisher = "sainnhe";
           version = "0.3.0";
           sha256 = "sha256-nZirzVvM160ZTpBLTimL2X35sIGy5j2LQOok7a2Yc7U=";
+        }
+        {
+          name = "tokyo-night";
+          publisher = "enkia";
+          version = "1.1.2";
+          sha256 = "sha256-oW0bkLKimpcjzxTb/yjShagjyVTUFEg198oPbY5J2hM=";
         }
       ];
   };
