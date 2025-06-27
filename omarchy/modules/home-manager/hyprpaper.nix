@@ -3,22 +3,23 @@
   pkgs,
   ...
 }: let
+  cfg = config.omarchy;
   wallpapers = {
     "tokyo-night" = [
-      "tokyo-night/1-Pawel-Czerwinski-Abstract-Purple-Blue.jpg"
+      "1-Pawel-Czerwinski-Abstract-Purple-Blue.jpg"
+    ];
+    "kanagawa" = [
+      "kanagawa-1.png"
     ];
   };
 
   # Safe access with fallback
-  theme = config.theme or "tokyo-night";
-  themeWallpapers = wallpapers.${theme} or wallpapers."tokyo-night";
-  selected_wallpaper = builtins.elemAt themeWallpapers 0;
-  selected_wallpaper_path = "~/Pictures/Wallpapers/${theme}/${selected_wallpaper}";
+  selected_wallpaper = builtins.elemAt (wallpapers.${cfg.theme}) 0;
+  selected_wallpaper_path = "~/Pictures/Wallpapers/${cfg.theme}/${selected_wallpaper}";
 in {
-
   home.file = {
     "Pictures/Wallpapers" = {
-      source = ../../config/wallpaper;
+      source = ../../config/themes/${cfg.theme}/wallpapers;
       recursive = true;
     };
   };

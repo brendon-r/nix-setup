@@ -15,7 +15,6 @@
     "$terminal" = "alacritty";
     "$fileManager" = "nautilus --new-window";
     "$browser" = "chromium --new-window --ozone-platform=wayland";
-    # "$browser" = "firefox--new-window --ozone-platform=wayland";
     "$music" = "spotify";
     "$passwordManager" = "1password";
     "$messenger" = "signal-desktop";

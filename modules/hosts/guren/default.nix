@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  flake.modules.hosts.guren = {pkgs, ...}: {
+  flake.modules.hosts.guren = {pkgs, ...}:  {
     imports = with (config.flake.modules.nixos);
       [
         # inputs.nixos-hardware.nixosModules.framework-13-amd-ai-300-series
@@ -26,6 +26,7 @@
         }
         {
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
+            inputs.omarchy.homeManagerModules.options
             inputs.omarchy.homeManagerModules.default
             base
             desktop
