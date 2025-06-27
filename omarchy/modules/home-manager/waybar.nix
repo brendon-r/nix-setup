@@ -4,6 +4,8 @@
   ...
 }: let
   cfg = config.omarchy;
+  themes = import ../themes.nix;
+  theme = themes.${cfg.theme};
 in {
   home.file = {
     ".config/waybar/" = {
@@ -11,7 +13,12 @@ in {
       recursive = true;
     };
     ".config/waybar/theme.css" = {
-      source = ../../config/themes/${cfg.theme}/waybar.css;
+      text = ''
+        * {
+          color: ${theme.color};
+          background-color: ${theme.backgroundColor};
+        }
+      '';
     };
   };
 

@@ -29,7 +29,7 @@
 
   flake.modules.homeManager.base = {
     omarchy = {
-      theme = "tokyo-night";
+      theme = "everforest";
     };
   };
 }

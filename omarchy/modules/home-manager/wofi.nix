@@ -4,6 +4,8 @@
   ...
 }: let
   cfg = config.omarchy;
+  themes = import ../themes.nix;
+  theme = themes.${cfg.theme};
 in {
   home.file = {
     ".config/wofi/style.css" = {
