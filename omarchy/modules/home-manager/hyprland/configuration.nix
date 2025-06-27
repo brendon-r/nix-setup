@@ -1,8 +1,15 @@
-inputs: {
+{
   config,
   pkgs,
   ...
 }: {
+  imports = [
+    ./autostart.nix
+    ./bindings.nix
+    ./envs.nix
+    ./looknfeel.nix
+    ./windows.nix
+  ];
   wayland.windowManager.hyprland.settings = {
     # Default applications
     "$terminal" = "alacritty";
@@ -32,14 +39,6 @@ inputs: {
       "SUPER SHIFT, G, exec, $webapp=https://web.whatsapp.com/"
       "SUPER, X, exec, $webapp=https://x.com/"
       "SUPER SHIFT, X, exec, $webapp=https://x.com/compose/post"
-    ];
-
-    imports = [
-      ./autostart.nix
-      ./bindings.nix
-      ./envs.nix
-      ./looknfeel.nix
-      ./windows.nix
     ];
   };
 }

@@ -1,4 +1,4 @@
-inputs: {
+{
   config,
   pkgs,
   ...
@@ -98,7 +98,7 @@ inputs: {
 
     # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
     master = {
-      new_status = master;
+      new_status = "master";
     };
 
     # https://wiki.hyprland.org/Configuring/Variables/#misc
