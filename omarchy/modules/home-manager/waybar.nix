@@ -4,7 +4,7 @@
   ...
 }: {
   home.file = {
-    "~/.config/waybar/" = {
+    ".config/waybar/" = {
       source = ../../config/waybar;
       recursive = true;
     };
