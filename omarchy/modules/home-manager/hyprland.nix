@@ -1,4 +1,4 @@
-inputs:{
+inputs: {
   config,
   pkgs,
   ...
@@ -21,8 +21,6 @@ inputs:{
     chromium
     spotify
     _1password-gui
-    signal-desktop
-    waybar
-    rofi-wayland
+    # signal-desktop
   ];
 }

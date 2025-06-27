@@ -8,6 +8,7 @@
     vim
     curl
     wget
+    bibata-cursors
   ];
 
   security.rtkit.enable = true;

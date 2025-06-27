@@ -26,11 +26,9 @@
         }
         {
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
+            inputs.omarchy.homeManagerModules.default
             base
             desktop
-            inputs.omarchy.homeManagerModules.default
-            # hyprland
-            # gnome
             dev
             games
             nixvim

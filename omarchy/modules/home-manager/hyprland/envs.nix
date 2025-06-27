@@ -16,6 +16,10 @@
       "XCURSOR_SIZE,24"
       "HYPRCURSOR_SIZE,24"
 
+      # Cursor theme
+      "XCURSOR_THEME,Bibata-Modern-Classic"
+      "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+
       # Force all apps to use Wayland
       "GDK_BACKEND,wayland"
       "QT_QPA_PLATFORM,wayland"
