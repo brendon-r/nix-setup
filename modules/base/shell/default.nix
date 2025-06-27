@@ -10,7 +10,11 @@
     };
 
     homeManager.shell = {pkgs, ...}: {
-      programs.direnv.enable = true;
+      programs.direnv = {
+        enable = true;
+        enableZshIntegration = true;
+        nix-direnv.enable = true;
+      };
       programs.starship.enable = true;
       programs.zellij.enable = true;
       programs.zoxide = {

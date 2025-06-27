@@ -5,7 +5,7 @@
     environment.systemPackages = [
     ];
     services.gnome.gnome-keyring.enable = true;
-    security.pam.services.hyprland.enableGnomeKeyring = true;
+    security.pam.services.login.enableGnomeKeyring = true;
   };
 
   flake.modules.homeManager.hyprland = {
@@ -19,6 +19,7 @@
       wl-clipboard
       bibata-cursors
       hyprpaper
+      playerctl
       kdePackages.dolphin
     ];
 

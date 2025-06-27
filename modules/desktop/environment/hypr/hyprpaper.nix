@@ -6,13 +6,6 @@
   }: let
     wallpaper = "~/Pictures/Wallpapers/mountains.jpg";
   in {
-    home.file = {
-      "Pictures/Wallpapers" = {
-        source = ../../../../config/wallpaper;
-        recursive = true;
-      };
-    };
-
     services.hyprpaper = {
       enable = true;
       settings = {

@@ -49,7 +49,6 @@
       protonup-qt
     ];
 
-
     home.file = {
       ".config/ghostty/" = {
         source = ../../../config/ghostty;
@@ -63,7 +62,6 @@
         theme = "everforest";
         font-family = "Berkeley Mono";
       };
-
     };
   };
 }

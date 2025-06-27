@@ -20,8 +20,8 @@
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    nixvim.url = "github:nix-community/nixvim";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -32,6 +32,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    omarchy.url = "path:./omarchy";
+    omarchy.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
   nixConfig = {

@@ -36,6 +36,7 @@
         ++ [
           inputs.home-manager.nixosModules.home-manager
           {
+            home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = specialArgs;
             networking.hostName = lib.mkDefault name;
             nixpkgs.hostPlatform = lib.mkDefault system;

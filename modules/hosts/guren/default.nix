@@ -8,10 +8,12 @@
       [
         # inputs.nixos-hardware.nixosModules.framework-13-amd-ai-300-series
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+        inputs.omarchy.nixosModules.default
         base
         desktop
         containers
-        hyprland
+        # hyprland
+        # gnome
         dev
         games
         shell
@@ -26,7 +28,9 @@
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
             base
             desktop
-            hyprland
+            inputs.omarchy.homeManagerModules.default
+            # hyprland
+            # gnome
             dev
             games
             nixvim
@@ -44,17 +48,6 @@
     # Use power-profiles-daemon instead of TLP
     services.power-profiles-daemon.enable = true;
     services.tlp.enable = false;
-
-    # Ostensibly fixes issues w/ s2idle
-    # Force suspend-then-hibernate to avoid s2idle problems
-    # services.logind = {
-    #   lidSwitch = "suspend-then-hibernate";
-    #   extraConfig = ''
-    #     HandlePowerKey=suspend-then-hibernate
-    #     IdleAction=suspend-then-hibernate
-    #     IdleActionSec=2m
-    #   '';
-    # };
 
     # systemd.sleep.extraConfig = ''
     #   HibernateDelaySec=2h
