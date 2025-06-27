@@ -11,6 +11,9 @@
     "kanagawa" = [
       "kanagawa-1.png"
     ];
+    "everforest" = [
+      "1-everforest.jpg"
+    ];
   };
 
   # Safe access with fallback

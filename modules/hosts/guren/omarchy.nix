@@ -4,14 +4,6 @@
   ...
 }: {
   flake.modules.hosts.guren = {pkgs, ...}: {
-    # Omarchy configuration
-    flake.modules.homeManager.base = {
-      omarchy = {
-        theme = "everforest";
-      };
-    };
-
-    # Hyprland overrides
     home-manager.users.henry = {
       wayland.windowManager.hyprland.settings = {
         input = {
@@ -32,6 +24,12 @@
           ",mouse:274, exec,"
         ];
       };
+    };
+  };
+
+  flake.modules.homeManager.base = {
+    omarchy = {
+      theme = "everforest";
     };
   };
 }
