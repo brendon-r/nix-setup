@@ -7,19 +7,6 @@
   themes = import ../themes.nix;
   theme = themes.${cfg.theme};
 in {
-  home.packages = with pkgs; [
-    firefox
-    git
-    vim
-    libnotify
-  ];
-
-  programs.git = {
-    enable = true;
-    userName = cfg.full_name;
-    userEmail = cfg.email_address;
-  };
-
   programs.vscode = {
     enable = true;
     profiles.default = {

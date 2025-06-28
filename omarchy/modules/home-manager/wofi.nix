@@ -11,63 +11,73 @@ in {
     ".config/wofi/style.css" = {
       text = ''
         * {
-          font-family: "Liberation Sans", sans-serif;
-          font-size: 14px;
+          font-family: 'CaskaydiaMono Nerd Font', monospace;
+          font-size: 18px;
         }
 
         window {
           margin: 0px;
-          border: 2px solid ${theme.border};
+          padding: 20px;
           background-color: ${theme.background};
-          border-radius: 8px;
-        }
-
-        #input {
-          margin: 5px;
-          border: none;
-          color: ${theme.foreground};
-          background-color: ${theme.surface};
-          border-radius: 4px;
-          padding: 8px;
+          opacity: 0.95;
         }
 
         #inner-box {
-          margin: 5px;
+          margin: 0;
+          padding: 0;
           border: none;
           background-color: ${theme.background};
         }
 
         #outer-box {
-          margin: 5px;
+          margin: 0;
+          padding: 20px;
           border: none;
           background-color: ${theme.background};
         }
 
         #scroll {
-          margin: 0px;
+          margin: 0;
+          padding: 0;
+          border: none;
+          background-color: ${theme.background};
+        }
+
+        #input {
+          margin: 0;
+          padding: 10px;
+          border: none;
+          background-color: ${theme.background};
+          color: @text;
+        }
+
+        #input:focus {
+          outline: none;
+          box-shadow: none;
           border: none;
         }
 
         #text {
           margin: 5px;
           border: none;
-          color: ${theme.foreground};
+          color: ${theme.foreground_muted}
         }
 
         #entry {
           background-color: ${theme.background};
-          border-radius: 4px;
-          margin: 2px;
-          padding: 8px;
         }
 
         #entry:selected {
-          background-color: ${theme.primary};
-          color: ${theme.background};
+          outline: none;
+          border: none;
         }
 
-        #entry:hover {
-          background-color: ${theme.surface};
+        #entry:selected #text {
+          color: ${theme.primary_variant};
+        }
+
+        #entry image {
+          -gtk-icon-transform: scale(0.7);
         }
       '';
     };

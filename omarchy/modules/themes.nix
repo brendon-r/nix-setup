@@ -42,7 +42,7 @@
     border = "#33ccff";
     selection = "#7aa2f7";
     inactive = "#565f89";
-    text_muted = "#cfc9c2";
+    foreground_muted = "#cfc9c2";
 
     # VSCode theme
     vscode_theme = "Tokyo Night";
@@ -91,7 +91,7 @@
     border = "#c6d0f5";
     selection = "#f4dbd6";
     inactive = "#838ba7";
-    text_muted = "#c6d0f5";
+    foreground_muted = "#c6d0f5";
 
     # Special colors
     orange = "#f5a97f";
@@ -144,7 +144,7 @@
     border = "#938aa9";
     selection = "#2d4f67";
     inactive = "#727169";
-    text_muted = "#c8c093";
+    foreground_muted = "#c8c093";
 
     # Special colors
     orange = "#ffa066";
@@ -197,7 +197,7 @@
     border = "#3d484d";
     selection = "#3d484d";
     inactive = "#2d353b";
-    text_muted = "#d3c6aa";
+    foreground_muted = "#d3c6aa";
 
     # VSCode theme
     vscode_theme = "Everforest Dark";
@@ -246,7 +246,7 @@
     border = "#504945";
     selection = "#504945";
     inactive = "#665c54";
-    text_muted = "#bdae93";
+    foreground_muted = "#bdae93";
 
     # VSCode theme
     vscode_theme = "Gruvbox Dark";
@@ -295,7 +295,7 @@
     border = "#b4befe";
     selection = "#f5e0dc";
     inactive = "#6c7086";
-    text_muted = "#cdd6f4";
+    foreground_muted = "#cdd6f4";
 
     # Special colors
     orange = "#fab387";
@@ -305,5 +305,6 @@
     vscode_theme = "Catppuccin Mocha";
   };
 
+  # "nord" = {};
   # Add more themes here
 }

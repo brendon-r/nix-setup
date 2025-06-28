@@ -9,7 +9,9 @@
     curl
     wget
     pamixer
+    playerctl
     bibata-cursors
+    gnome-themes-extra
   ];
 
   security.rtkit.enable = true;

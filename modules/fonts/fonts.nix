@@ -1,5 +1,5 @@
 {...}: {
-  flake.modules.nixos.fonts= {pkgs, ...}: {
+  flake.modules.nixos.fonts = {pkgs, ...}: {
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-emoji
@@ -8,7 +8,7 @@
       nerd-fonts.fira-code
       (pkgs.stdenv.mkDerivation {
         name = "berkeley-mono";
-        src = ../../../config/fonts/berkeley-mono.zip;
+        src = ../../config/fonts/berkeley-mono.zip;
 
         nativeBuildInputs = [pkgs.unzip];
 

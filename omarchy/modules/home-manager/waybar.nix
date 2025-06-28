@@ -139,14 +139,15 @@ in {
           tooltip-format = "Devices connected: {num_connections}";
           on-click = "GTK_THEME=Adwaita-dark blueberry";
         };
-        wireplumber = {  # Changed from "pulseaudio"
+        wireplumber = {
+          # Changed from "pulseaudio"
           "format" = "";
           format-muted = "󰝟";
           scroll-step = 5;
           on-click = "GTK_THEME=Adwaita-dark pavucontrol";
           tooltip-format = "Playing at {volume}%";
-          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";  # Updated command
-          max-volume = 150;  # Optional: allow volume over 100%
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; # Updated command
+          max-volume = 150; # Optional: allow volume over 100%
         };
         power-profiles-daemon = {
           format = "{icon}";

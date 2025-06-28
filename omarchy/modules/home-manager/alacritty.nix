@@ -53,123 +53,63 @@ in {
       };
 
       # Colors
-      colors =
-        {
-          primary = {
-            background = theme.background;
-            foreground = theme.foreground;
-            dim_foreground = theme.text_muted;
-            bright_foreground = theme.foreground;
-          };
+      colors = {
+        primary.background = theme.background;
+        primary.foreground = theme.foreground;
 
-          cursor = {
-            text = theme.background;
-            cursor = theme.accent;
-          };
+        normal.black = theme.black;
+        normal.red = theme.red;
+        normal.green = theme.green;
+        normal.yellow = theme.yellow;
+        normal.blue = theme.blue;
+        normal.magenta = theme.magenta;
+        normal.cyan = theme.cyan;
+        normal.white = theme.white;
 
-          vi_mode_cursor = {
-            text = theme.background;
-            cursor = theme.secondary;
-          };
+        bright.black = theme.bright_black;
+        bright.red = theme.bright_red;
+        bright.green = theme.bright_green;
+        bright.yellow = theme.bright_yellow;
+        bright.blue = theme.bright_blue;
+        bright.magenta = theme.bright_magenta;
+        bright.cyan = theme.bright_cyan;
+        bright.white = theme.bright_white;
 
-          search = {
-            matches = {
-              foreground = theme.background;
-              background = theme.warning;
-            };
-            focused_match = {
-              foreground = theme.background;
-              background = theme.success;
-            };
-          };
-
-          footer_bar = {
-            foreground = theme.background;
-            background = theme.surface_variant;
-          };
-
-          hints = {
-            start = {
-              foreground = theme.background;
-              background = theme.warning;
-            };
-            end = {
-              foreground = theme.background;
-              background = theme.surface_variant;
-            };
-          };
-
-          selection = {
-            text = theme.background;
-            background = theme.selection;
-          };
-
-          normal = {
-            black = theme.black;
-            red = theme.red;
-            green = theme.green;
-            yellow = theme.yellow;
-            blue = theme.blue;
-            magenta = theme.magenta;
-            cyan = theme.cyan;
-            white = theme.white;
-          };
-
-          bright = {
-            black = theme.bright_black;
-            red = theme.bright_red;
-            green = theme.bright_green;
-            yellow = theme.bright_yellow;
-            blue = theme.bright_blue;
-            magenta = theme.bright_magenta;
-            cyan = theme.bright_cyan;
-            white = theme.bright_white;
-          };
-
-          dim = {
-            black = theme.black;
-            red = theme.red;
-            green = theme.green;
-            yellow = theme.yellow;
-            blue = theme.blue;
-            magenta = theme.magenta;
-            cyan = theme.cyan;
-            white = theme.white;
-          };
-        }
-        // (
-          if theme ? orange
-          then {
-            indexed_colors =
-              [
-                {
-                  index = 16;
-                  color = theme.orange;
-                }
-              ]
-              ++ (
-                if theme ? rosewater
-                then [
-                  {
-                    index = 17;
-                    color = theme.rosewater;
-                  }
-                ]
-                else []
-              )
-              ++ (
-                if theme ? peach
-                then [
-                  {
-                    index = 18;
-                    color = theme.peach;
-                  }
-                ]
-                else []
-              );
-          }
-          else {}
-        );
+        selection.background = theme.primary;
+      };
+      # // (
+      #   if theme ? orange
+      #   then {
+      #     indexed_colors =
+      #       [
+      #         {
+      #           index = 16;
+      #           color = theme.orange;
+      #         }
+      #       ]
+      #       ++ (
+      #         if theme ? rosewater
+      #         then [
+      #           {
+      #             index = 17;
+      #             color = theme.rosewater;
+      #           }
+      #         ]
+      #         else []
+      #       )
+      #       ++ (
+      #         if theme ? peach
+      #         then [
+      #           {
+      #             index = 18;
+      #             color = theme.peach;
+      #           }
+      #         ]
+      #         else []
+      #       );
+      #   }
+      #   else {}
+      # );
 
       # Bell
       bell = {

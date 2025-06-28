@@ -8,31 +8,28 @@
       [
         # inputs.nixos-hardware.nixosModules.framework-13-amd-ai-300-series
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
-        inputs.omarchy.flakeModules.modules
+        inputs.omarchy.nixosModules.default
         base
         fonts
-        packages
-        containers
-        dev
-        games
-        shell
+        # packages
+        # containers
+        # dev
+        # games
+        # shell
       ]
       ++ config.flake.modules.nixosUsers.root.imports
       ++ config.flake.modules.nixosUsers.henry.imports
       ++ [
         {
           home-manager.users.henry.nixpkgs.config.allowUnfree = true;
-        }
-        {
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
-            inputs.omarchy.flakeModules.home-manager
+            inputs.omarchy.homeManagerModules.default
             base
-            packages
             fonts
-            dev
-            games
-            nixvim
-            shell
+            # dev
+            # games
+            # nixvim
+            # shell
           ];
         }
       ];
@@ -46,11 +43,6 @@
     # Use power-profiles-daemon instead of TLP
     services.power-profiles-daemon.enable = true;
     services.tlp.enable = false;
-
-    # systemd.sleep.extraConfig = ''
-    #   HibernateDelaySec=2h
-    #   SuspendMode=deep
-    # '';
 
     # Systemd services for WiFi suspend workaround
     systemd.services.wifi-suspend-workaround = {

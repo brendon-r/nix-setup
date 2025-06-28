@@ -37,6 +37,5 @@
     };
   };
 
-  flake.modules.homeManager.base = {
-  };
+  flake.modules.homeManager.base = {};
 }

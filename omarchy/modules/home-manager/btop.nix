@@ -10,49 +10,46 @@ in {
   home.file = {
     ".config/btop/themes/${cfg.theme}.theme" = {
       text = ''
-        # Theme: ${cfg.theme}
-        # Generated from omarchy theme system
-
-        # Main background, empty for terminal default, need to be empty if you want transparent background
+        # Main bg
         theme[main_bg]="${theme.background}"
 
         # Main text color
-        theme[main_fg]="${theme.foreground}"
+        theme[main_fg]="${theme.foreground_muted}"
 
         # Title color for boxes
-        theme[title]="${theme.foreground}"
+        theme[title]="${theme.foreground_muted}"
 
         # Highlight color for keyboard shortcuts
-        theme[hi_fg]="${theme.accent}"
+        theme[hi_fg]="${theme.primary_variant}"
 
         # Background color of selected item in processes box
         theme[selected_bg]="${theme.surface}"
 
         # Foreground color of selected item in processes box
-        theme[selected_fg]="${theme.foreground}"
+        theme[selected_fg]="${theme.foreground_muted}"
 
         # Color of inactive/disabled text
         theme[inactive_fg]="${theme.inactive}"
 
-        # Color of text appearing on top of graphs, i.e uptime and current network graph scaling
-        theme[graph_text]="${theme.foreground}"
-
-        # Background color of the percentage meters
-        theme[meter_bg]="${theme.surface}"
-
         # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
-        theme[proc_misc]="${theme.primary}"
+        theme[proc_misc]="${theme.primary_variant}"
 
-        # CPU, Memory, Network, Proc box outline colors
-        theme[cpu_box]="${theme.surface_variant}"
-        theme[mem_box]="${theme.surface_variant}"
-        theme[net_box]="${theme.surface_variant}"
-        theme[proc_box]="${theme.surface_variant}"
+        # Cpu box outline color
+        theme[cpu_box]="${theme.inactive}"
+
+        # Memory/disks box outline color
+        theme[mem_box]="${theme.inactive}"
+
+        # Net up/down box outline color
+        theme[net_box]="${theme.inactive}"
+
+        # Processes box outline color
+        theme[proc_box]="${theme.inactive}"
 
         # Box divider line and small boxes line color
-        theme[div_line]="${theme.surface_variant}"
+        theme[div_line]="${theme.inactive}"
 
-        # Temperature graph colors (Green -> Yellow -> Red)
+        # Temperature graph colors
         theme[temp_start]="${theme.success}"
         theme[temp_mid]="${theme.warning}"
         theme[temp_end]="${theme.error}"
@@ -63,33 +60,33 @@ in {
         theme[cpu_end]="${theme.error}"
 
         # Mem/Disk free meter
-        theme[free_start]="${theme.primary}"
-        theme[free_mid]="${theme.primary_variant}"
-        theme[free_end]="${theme.accent}"
+        theme[free_start]="${theme.success}"
+        theme[free_mid]="${theme.warning}"
+        theme[free_end]="${theme.error}"
 
         # Mem/Disk cached meter
-        theme[cached_start]="${theme.secondary}"
-        theme[cached_mid]="${theme.primary}"
-        theme[cached_end]="${theme.accent}"
+        theme[cached_start]="${theme.success}"
+        theme[cached_mid]="${theme.warning}"
+        theme[cached_end]="${theme.error}"
 
         # Mem/Disk available meter
         theme[available_start]="${theme.success}"
-        theme[available_mid]="${theme.info}"
-        theme[available_end]="${theme.primary}"
+        theme[available_mid]="${theme.warning}"
+        theme[available_end]="${theme.error}"
 
         # Mem/Disk used meter
-        theme[used_start]="${theme.warning}"
-        theme[used_mid]="${theme.error}"
-        theme[used_end]="${theme.red}"
+        theme[used_start]="${theme.success}"
+        theme[used_mid]="${theme.warning}"
+        theme[used_end]="${theme.error}"
 
         # Download graph colors
         theme[download_start]="${theme.success}"
-        theme[download_mid]="${theme.primary}"
-        theme[download_end]="${theme.accent}"
+        theme[download_mid]="${theme.warning}"
+        theme[download_end]="${theme.error}"
 
         # Upload graph colors
-        theme[upload_start]="${theme.warning}"
-        theme[upload_mid]="${theme.secondary}"
+        theme[upload_start]="${theme.success}"
+        theme[upload_mid]="${theme.warning}"
         theme[upload_end]="${theme.error}"
       '';
     };
@@ -136,8 +133,8 @@ in {
       show_cpu_freq = true;
       clock_format = "%X";
       background_update = true;
-      custom_cpu_name = "";
-      disks_filter = "";
+      custom_cpu_name = ";
+      disks_filter = ";
       mem_graphs = true;
       mem_below_net = false;
       zfs_arc_cached = true;
@@ -151,12 +148,12 @@ in {
       show_io_stat = true;
       io_mode = false;
       io_graph_combined = false;
-      io_graph_speeds = "";
+      io_graph_speeds = ";
       net_download = 100;
       net_upload = 100;
       net_auto = true;
       net_sync = true;
-      net_iface = "";
+      net_iface = ";
       show_battery = true;
       selected_battery = "Auto";
       log_level = "WARNING";

@@ -24,9 +24,7 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";
-    hyprland.url = "github:hyprwm/Hyprland";
-    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +33,7 @@
 
     omarchy.url = "path:./omarchy";
     omarchy.inputs.nixpkgs.follows = "nixpkgs";
+    omarchy.inputs.home-manager.follows = "home-manager";
   };
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
   nixConfig = {

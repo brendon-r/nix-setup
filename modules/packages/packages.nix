@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.nixos.packages= {pkgs, ...}: {
+  flake.modules.nixos.packages = {pkgs, ...}: {
     programs = {
       _1password.enable = true;
       _1password-gui.enable = true;
