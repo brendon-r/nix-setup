@@ -48,20 +48,5 @@
       # gaming
       protonup-qt
     ];
-
-    home.file = {
-      ".config/ghostty/" = {
-        source = ../../../config/ghostty;
-        recursive = true;
-      };
-    };
-
-    programs.ghostty = {
-      enable = true;
-      settings = {
-        theme = "everforest";
-        font-family = "Berkeley Mono";
-      };
-    };
   };
 }

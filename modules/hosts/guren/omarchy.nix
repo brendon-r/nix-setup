@@ -4,6 +4,16 @@
   ...
 }: {
   flake.modules.hosts.guren = {pkgs, ...}: {
+    omarchy = {
+      full_name = "Henry Sipp";
+      email_address = "hesipp@gmail.com";
+      theme = "tokyo-night";
+      primary_font = "Berkeley Mono";
+      vscode_settings = {
+        "editor.fontFamily" = "Berkeley Mono";
+      };
+    };
+
     home-manager.users.henry = {
       wayland.windowManager.hyprland.settings = {
         input = {
@@ -28,8 +38,5 @@
   };
 
   flake.modules.homeManager.base = {
-    omarchy = {
-      theme = "tokyo-night";
-    };
   };
 }

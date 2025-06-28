@@ -8,7 +8,7 @@
       [
         # inputs.nixos-hardware.nixosModules.framework-13-amd-ai-300-series
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
-        inputs.omarchy.nixosModules.default
+        inputs.omarchy.flakeModules.modules
         base
         desktop
         containers
@@ -26,7 +26,7 @@
         }
         {
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
-            inputs.omarchy.homeManagerModules.default
+            inputs.omarchy.flakeModules.home-manager
             base
             desktop
             dev

@@ -2,7 +2,22 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.omarchy;
+  themes = import ../../themes.nix;
+  theme = themes.${cfg.theme};
+
+  # Convert hex color to rgba format for hyprland
+  hexToRgba = hex: alpha: let
+    cleanHex = builtins.substring 1 6 hex; # Remove the # prefix
+  in "rgba(${cleanHex}${alpha})";
+
+  # Special handling for tokyo-night gradient
+  activeBorder =
+    if cfg.theme == "tokyo-night"
+    then "${hexToRgba theme.accent "ee"} ${hexToRgba theme.success "ee"} 45deg"
+    else hexToRgba theme.foreground "ff";
+in {
   wayland.windowManager.hyprland.settings = {
     # Refer to https://wiki.hyprland.org/Configuring/Variables/
 
@@ -14,8 +29,8 @@
       border_size = 2;
 
       # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      "col.inactive_border" = "rgba(595959aa)";
+      "col.active_border" = activeBorder;
+      "col.inactive_border" = hexToRgba theme.surface_variant "aa";
 
       # Set to true enable resizing windows by clicking and dragging on borders and gaps
       resize_on_border = false;
@@ -34,7 +49,7 @@
         enabled = true;
         range = 2;
         render_power = 3;
-        color = "rgba(1a1a1aee)";
+        color = hexToRgba theme.background "ee";
       };
 
       # https://wiki.hyprland.org/Configuring/Variables/#blur

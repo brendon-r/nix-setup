@@ -86,6 +86,10 @@
       "CTRL, F2, exec, ~/.local/share/omarchy/bin/apple-display-brightness +5000"
       "SHIFT CTRL, F2, exec, ~/.local/share/omarchy/bin/apple-display-brightness +60000"
 
+      # Super workspace floating layer
+      "SUPER, S, togglespecialworkspace, magic"
+      "SUPER SHIFT, S, movetoworkspace, special:magic"
+
       # Screenshots
       ", PRINT, exec, hyprshot -m region"
       "SHIFT, PRINT, exec, hyprshot -m window"

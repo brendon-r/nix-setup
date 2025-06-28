@@ -11,17 +11,26 @@ in {
     firefox
     git
     vim
+    libnotify
   ];
+
+  programs.git = {
+    enable = true;
+    userName = cfg.full_name;
+    userEmail = cfg.email_address;
+  };
+
   programs.vscode = {
     enable = true;
     profiles.default = {
-      userSettings = {
-        "workbench.colorTheme" = theme.vscode_theme;
-        # "workbench.colorTheme" = "Everforest Dark";
-        "vim.useCtrlKeys" = false;
-        "editor.minimap.enabled" = false;
-
-      };
+      userSettings =
+        {
+          "workbench.colorTheme" = theme.vscode_theme;
+          # "workbench.colorTheme" = "Everforest Dark";
+          "vim.useCtrlKeys" = false;
+          "editor.minimap.enabled" = false;
+        }
+        // cfg.vscode_settings;
 
       extensions = with pkgs.vscode-extensions;
         [
@@ -49,10 +58,4 @@ in {
         ];
     };
   };
-
-  # programs.git = {
-  #   enable = true;
-  #   userName = "Default User";
-  #   userEmail = "user@example.com";
-  # };
 }

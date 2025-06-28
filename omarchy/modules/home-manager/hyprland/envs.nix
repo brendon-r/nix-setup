@@ -33,7 +33,7 @@
       "CHROMIUM_FLAGS,\"--enable-features=UseOzonePlatform --ozone-platform=wayland --gtk-version=4\""
 
       # Make .desktop files available for wofi
-      # "XDG_DATA_DIRS,/usr/share:/usr/local/share:~/.local/share"
+      "XDG_DATA_DIRS,$XDG_DATA_DIRS:$HOME/.nix-profile/share:/nix/var/nix/profiles/default/share"
 
       # Use XCompose file
       "XCOMPOSEFILE,~/.XCompose"

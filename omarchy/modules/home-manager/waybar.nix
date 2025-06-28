@@ -37,10 +37,10 @@ in {
           "clock"
         ];
         modules-right = [
-          "custom/dropbox"
+          # "custom/dropbox"
           "bluetooth"
           "network"
-          "pulseaudio"
+          "wireplumber"
           "cpu"
           "power-profiles-daemon"
           "battery"
@@ -133,20 +133,20 @@ in {
           };
         };
         bluetooth = {
-          format = "";
+          format = "󰂯";
           format-disabled = "󰂲";
           format-connected = "";
           tooltip-format = "Devices connected: {num_connections}";
           on-click = "GTK_THEME=Adwaita-dark blueberry";
         };
-        pulseaudio = {
-          format = "";
+        wireplumber = {  # Changed from "pulseaudio"
+          "format" = "";
           format-muted = "󰝟";
           scroll-step = 5;
           on-click = "GTK_THEME=Adwaita-dark pavucontrol";
           tooltip-format = "Playing at {volume}%";
-          on-click-right = "pamixer -t";
-          ignored-sinks = ["Easy Effects Sink"];
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";  # Updated command
+          max-volume = 150;  # Optional: allow volume over 100%
         };
         power-profiles-daemon = {
           format = "{icon}";

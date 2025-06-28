@@ -22,7 +22,7 @@
 #battery,
 #network,
 #bluetooth,
-#pulseaudio,
+#wireplumber,
 #clock {
   min-width: 12px;
   margin-right: 13px;

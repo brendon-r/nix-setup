@@ -5,8 +5,8 @@
       extraConfig = {
         credential.helper = "store";
       };
-      userName = "Henry Sipp";
-      userEmail = "hesipp@gmail.com";
+      # userName = "Henry Sipp";
+      # userEmail = "hesipp@gmail.com";
     };
     programs.gh = {
       enable = true;
