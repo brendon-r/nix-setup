@@ -15,23 +15,25 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-webapps.url = "github:TLATER/nix-webapps";
 
-    # Keep using stable 25.05 as your base
+    # Keep using stable 25.05 as your baseyourhostname 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    nixvim.url = "github:nix-community/nixvim";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";
-    hyprland.url = "github:hyprwm/Hyprland";
-    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    omarchy.url = "github:henrysipp/omarchy-nix";
+    omarchy.inputs.nixpkgs.follows = "nixpkgs";
+    omarchy.inputs.home-manager.follows = "home-manager";
   };
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
   nixConfig = {

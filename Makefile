@@ -3,7 +3,10 @@ update:
 	sudo nix flake update
 	
 nixos:
-	sudo nixos-rebuild switch --flake .
+	sudo nixos-rebuild switch --flake . --impure
+
+nixos-oma:
+	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/henry/Developer/omarchy-nix
 
 macos:
 	sudo darwin-rebuild switch --flake .#

@@ -1,6 +1,0 @@
-Using saved setting for 'allow-unfree = true' from ~/.local/share/nix/trusted-settings.json.
-Using saved setting for 'experimental-features = nix-command flakes' from ~/.local/share/nix/trusted-settings.json.
-building the system configuration...
-Using saved setting for 'allow-unfree = true' from ~/.local/share/nix/trusted-settings.json.
-Using saved setting for 'experimental-features = nix-command flakes' from ~/.local/share/nix/trusted-settings.json.
-error: interrupted by the user

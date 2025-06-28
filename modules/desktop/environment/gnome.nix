@@ -1,7 +1,13 @@
 {...}: {
   flake.modules.nixos.gnome = {pkgs, ...}: {
-    services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
+    # Pre 25.11
+    services.xserver.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.desktopManager.gnome.enable = true;
+
+    # As of 25.11
+    # services.displayManager.gdm.enable = true;
+    # services.desktopManager.gnome.enable = true
     # Configure dconf settings using the proper NixOS module
     programs.dconf = {
       enable = true;
@@ -110,4 +116,6 @@
       yelp
     ];
   };
+
+  flake.modules.homeManager.gnome = {};
 }

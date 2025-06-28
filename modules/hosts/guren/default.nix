@@ -8,29 +8,28 @@
       [
         # inputs.nixos-hardware.nixosModules.framework-13-amd-ai-300-series
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+        inputs.omarchy.nixosModules.default
         base
-        desktop
-        containers
-        hyprland
-        dev
-        games
-        shell
+        fonts
+        # packages
+        # containers
+        # dev
+        # games
+        # shell
       ]
       ++ config.flake.modules.nixosUsers.root.imports
       ++ config.flake.modules.nixosUsers.henry.imports
       ++ [
         {
           home-manager.users.henry.nixpkgs.config.allowUnfree = true;
-        }
-        {
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
+            inputs.omarchy.homeManagerModules.default
             base
-            desktop
-            hyprland
-            dev
-            games
-            nixvim
-            shell
+            fonts
+            # dev
+            # games
+            # nixvim
+            # shell
           ];
         }
       ];
@@ -44,22 +43,6 @@
     # Use power-profiles-daemon instead of TLP
     services.power-profiles-daemon.enable = true;
     services.tlp.enable = false;
-
-    # Ostensibly fixes issues w/ s2idle
-    # Force suspend-then-hibernate to avoid s2idle problems
-    # services.logind = {
-    #   lidSwitch = "suspend-then-hibernate";
-    #   extraConfig = ''
-    #     HandlePowerKey=suspend-then-hibernate
-    #     IdleAction=suspend-then-hibernate
-    #     IdleActionSec=2m
-    #   '';
-    # };
-
-    # systemd.sleep.extraConfig = ''
-    #   HibernateDelaySec=2h
-    #   SuspendMode=deep
-    # '';
 
     # Systemd services for WiFi suspend workaround
     systemd.services.wifi-suspend-workaround = {

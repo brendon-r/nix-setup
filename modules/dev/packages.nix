@@ -11,7 +11,6 @@
       ripgrep
 
       # System utilities
-      direnv
       curl
       unzip
       wget
@@ -19,7 +18,7 @@
       # Editors
       neovim
       vscode
-      jetbrains-toolbox
+      jetbrains.datagrip
     ];
   };
 }
