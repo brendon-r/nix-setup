@@ -10,10 +10,9 @@
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
         inputs.omarchy.flakeModules.modules
         base
-        desktop
+        fonts
+        packages
         containers
-        # hyprland
-        # gnome
         dev
         games
         shell
@@ -28,7 +27,8 @@
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
             inputs.omarchy.flakeModules.home-manager
             base
-            desktop
+            packages
+            fonts
             dev
             games
             nixvim

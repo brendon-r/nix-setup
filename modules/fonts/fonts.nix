@@ -1,5 +1,5 @@
 {...}: {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
+  flake.modules.nixos.fonts= {pkgs, ...}: {
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-emoji
@@ -43,7 +43,7 @@
     };
   };
 
-  flake.modules.homeManager.desktop = {
+  flake.modules.homeManager.fonts = {
     fonts.fontconfig.enable = true;
   };
 }

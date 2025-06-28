@@ -4,6 +4,7 @@
     # Import nixos modules for host `gawain`
       [
         base
+        sound
         desktop
         plasma
         dev
