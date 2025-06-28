@@ -12,7 +12,16 @@
       vscode_settings = {
         "editor.fontFamily" = "Berkeley Mono";
       };
-      quickAppBindings = [
+      hyprland_assignments = {
+        "$terminal" = "alacritty";
+        "$fileManager" = "nautilus --new-window";
+        "$browser" = "chromium --new-window --ozone-platform=wayland";
+        "$music" = "spotify";
+        "$passwordManager" = "1password";
+        "$messenger" = "tdesktop";
+        "$webapp" = "$browser --app";
+      };
+      quick_app_bindings = [
         "SUPER, A, exec, $webapp=https://claude.ai"
         "SUPER, C, exec, $webapp=https://app.hey.com/calendar/weeks/"
         "SUPER, E, exec, $webapp=https://app.hey.com"
