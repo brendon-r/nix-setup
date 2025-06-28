@@ -709,11 +709,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1751127517,
-        "narHash": "sha256-tbVnLPic1tGsCel7RJVwCnUNZf9o2ggQo7iHRwmz+vQ=",
+        "lastModified": 1751134737,
+        "narHash": "sha256-nUQwRmE+NCfq/O1pL/m1G6DwzvPlSpO90IS/rp28nCU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "064d5d114eba72516c4bcbabc28e9883f1e45f36",
+        "rev": "68fa71cc5a4829f8761180ab0cc92aea2524ea00",
         "type": "github"
       },
       "original": {
@@ -797,11 +797,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1751053139,
-        "narHash": "sha256-FMcWdec8fAXs7kiOQBsD+vA/RzjqoDz3zoYgPDQpZlA=",
+        "lastModified": 1751132660,
+        "narHash": "sha256-3EPw50N8OxezHaf5/wAiHiUiso7O6aoRxzeKoHACse0=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "c39f5f39c32e0a8fe91bff1cda847de7a0269411",
+        "rev": "01a861f66973e4e02b3ed0a4b2b78329cc70622c",
         "type": "github"
       },
       "original": {
@@ -845,14 +845,18 @@
         ]
       },
       "locked": {
-        "path": "./omarchy",
-        "type": "path"
+        "lastModified": 1751131817,
+        "narHash": "sha256-Cq94i5qBevE1kDd19IrvWX8Dms3EzKkEK6GLrjWsdaE=",
+        "owner": "henrysipp",
+        "repo": "omarchy-nix",
+        "rev": "4355bb6607938c0a23e068af1fc7d053b4e0a887",
+        "type": "github"
       },
       "original": {
-        "path": "./omarchy",
-        "type": "path"
-      },
-      "parent": []
+        "owner": "henrysipp",
+        "repo": "omarchy-nix",
+        "type": "github"
+      }
     },
     "pkgs-by-name-for-flake-parts": {
       "locked": {

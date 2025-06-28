@@ -15,7 +15,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-webapps.url = "github:TLATER/nix-webapps";
 
-    # Keep using stable 25.05 as your base
+    # Keep using stable 25.05 as your baseyourhostname 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -31,7 +31,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    omarchy.url = "path:./omarchy";
+    omarchy.url = "github:henrysipp/omarchy-nix";
     omarchy.inputs.nixpkgs.follows = "nixpkgs";
     omarchy.inputs.home-manager.follows = "home-manager";
   };
