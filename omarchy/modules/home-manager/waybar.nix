@@ -15,8 +15,8 @@ in {
     ".config/waybar/theme.css" = {
       text = ''
         * {
-          color: ${theme.color};
-          background-color: ${theme.backgroundColor};
+          color: ${theme.foreground};
+          background-color: ${theme.background};
         }
       '';
     };

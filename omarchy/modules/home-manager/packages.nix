@@ -16,9 +16,11 @@ in {
     enable = true;
     profiles.default = {
       userSettings = {
-        "workbench.colorTheme" theme.vscode_theme;
+        "workbench.colorTheme" = theme.vscode_theme;
         # "workbench.colorTheme" = "Everforest Dark";
         "vim.useCtrlKeys" = false;
+        "editor.minimap.enabled" = false;
+
       };
 
       extensions = with pkgs.vscode-extensions;
