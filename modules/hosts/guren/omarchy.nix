@@ -5,6 +5,7 @@
 }: {
   flake.modules.hosts.guren = {pkgs, ...}: {
     omarchy = {
+      hostname = "guren";
       full_name = "Henry Sipp";
       email_address = "hesipp@gmail.com";
       theme = "tokyo-night";

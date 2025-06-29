@@ -1,4 +1,7 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: 
+let 
+  claude = pkgs.callPackage ./claude-code/package.nix { };
+in {
   flake.modules.nixos.packages = {pkgs, ...}: {
     programs = {
       _1password.enable = true;

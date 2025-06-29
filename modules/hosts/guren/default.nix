@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  flake.modules.hosts.guren = {pkgs, ...}: {
+  flake.modules.hosts.guren = {pkgs, pkgs-unstable, ...}: {
     imports = with (config.flake.modules.nixos);
       [
         # inputs.nixos-hardware.nixosModules.framework-13-amd-ai-300-series
@@ -35,6 +35,10 @@
         }
       ];
 
+    
+    environment.systemPackages = [ 
+      pkgs-unstable.claude-code
+    ];
     hardware.graphics.enable = true;
     services.fwupd.enable = true;
     hardware.bluetooth.enable = true;
