@@ -26,6 +26,7 @@
             inputs.omarchy.homeManagerModules.default
             base
             fonts
+            desktop
             # dev
             # games
             # nixvim

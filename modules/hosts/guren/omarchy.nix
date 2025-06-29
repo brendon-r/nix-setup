@@ -12,15 +12,6 @@
       vscode_settings = {
         "editor.fontFamily" = "Berkeley Mono";
       };
-      hyprland_assignments = {
-        "$terminal" = "alacritty";
-        "$fileManager" = "nautilus --new-window";
-        "$browser" = "chromium --new-window --ozone-platform=wayland";
-        "$music" = "spotify";
-        "$passwordManager" = "1password";
-        "$messenger" = "tdesktop";
-        "$webapp" = "$browser --app";
-      };
       quick_app_bindings = [
         "SUPER, A, exec, $webapp=https://claude.ai"
         "SUPER, C, exec, $webapp=https://app.hey.com/calendar/weeks/"
@@ -45,6 +36,14 @@
 
     home-manager.users.henry = {
       wayland.windowManager.hyprland.settings = {
+        "$terminal" = "alacritty";
+        "$fileManager" = "nautilus --new-window";
+        "$browser" = "chromium --new-window --ozone-platform=wayland";
+        "$music" = "spotify";
+        "$passwordManager" = "1password";
+        "$messenger" = "telegram-desktop";
+        "$webapp" = "$browser --app";
+
         input = {
           kb_options = "ctrl:nocaps";
           touchpad = {

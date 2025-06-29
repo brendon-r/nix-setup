@@ -15,7 +15,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-webapps.url = "github:TLATER/nix-webapps";
 
-    # Keep using stable 25.05 as your baseyourhostname 
+    # Keep using stable 25.05 as your baseyourhostname
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";

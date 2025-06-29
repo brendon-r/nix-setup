@@ -16,19 +16,19 @@
   };
 
   flake.modules.homeManager.desktop = {pkgs, ...}: {
-    gtk = {
-      enable = true;
-      cursorTheme = {
-        package = pkgs.apple-cursor;
-        name = "macOS";
-        size = 24;
-      };
-    };
+    # gtk = {
+    #   enable = true;
+    #   cursorTheme = {
+    #     package = pkgs.apple-cursor;
+    #     name = "macOS";
+    #     size = 24;
+    #   };
+    # };
 
-    home.sessionVariables = {
-      XCURSOR_THEME = "macOS";
-      XCURSOR_SIZE = "24";
-    };
+    # home.sessionVariables = {
+    #   XCURSOR_THEME = "macOS";
+    #   XCURSOR_SIZE = "24";
+    # };
 
     home.packages = with pkgs; [
       apple-cursor
