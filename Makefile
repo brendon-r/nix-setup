@@ -8,6 +8,9 @@ nixos:
 nixos-oma:
 	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/henry/Developer/omarchy-nix
 
+check-oma:
+	nix flake check --override-input omarchy path:/home/henry/Developer/omarchy-nix
+
 macos:
 	sudo darwin-rebuild switch --flake .#
 
