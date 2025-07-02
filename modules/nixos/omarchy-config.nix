@@ -7,7 +7,7 @@
     hostname = "siegfried";
     full_name = "Henry Sipp";
     email_address = "hesipp@gmail.com";
-    theme = "tokyo-night";
+    theme = "gruvbox";
     primary_font = "Berkeley Mono";
     vscode_settings = {
       "editor.fontFamily" = "Berkeley Mono";

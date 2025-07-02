@@ -19,6 +19,11 @@
     omarchy.url = "github:henrysipp/omarchy-nix";
     omarchy.inputs.nixpkgs.follows = "nixpkgs";
     omarchy.inputs.home-manager.follows = "home-manager";
+
+     fw-fanctrl = {
+      url = "github:TamtamHero/fw-fanctrl/packaging/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

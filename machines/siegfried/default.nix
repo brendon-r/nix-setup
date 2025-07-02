@@ -9,6 +9,7 @@
   imports = [
     inputs.home-manager.nixosModules.default
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+    inputs.fw-fanctrl.nixosModules.default
 
     outputs.nixosModules.berkeley-mono
     outputs.nixosModules.omarchy-config
@@ -21,6 +22,13 @@
     pkgs.unstable.claude-code 
     pkgs.discord
   ];
+
+
+  services.fwupd.enable = true;
+  time.timeZone = "America/Chicago";
+
+  # Fan control
+  programs.fw-fanctrl.enable = true;
 
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = {
