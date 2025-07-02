@@ -15,7 +15,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
+    
     omarchy.url = "github:henrysipp/omarchy-nix";
     omarchy.inputs.nixpkgs.follows = "nixpkgs";
     omarchy.inputs.home-manager.follows = "home-manager";
@@ -35,6 +35,8 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    overlays = import ./overlays {inherit inputs;};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
     nixosConfigurations = {

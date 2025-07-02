@@ -17,6 +17,11 @@
     ./hardware-configuration.nix
   ];
 
+  environment.systemPackages = [
+    pkgs.unstable.claude-code 
+    pkgs.discord
+  ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
