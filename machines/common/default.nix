@@ -1,6 +1,21 @@
-{pkgs, ...}: {
-  services.tailscale.enable = true;
+{pkgs, outputs, ...}: {
 
+  time.timeZone = "America/Chicago";
+
+  nixpkgs = {
+    overlays = [
+      # outputs.overlays.additions
+      # outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+    config = {
+      allowUnfree = true;
+    };
+  };
+  nix.settings.experimental-features = "nix-command flakes";
+  home-manager.backupFileExtension = "backup";
+  
+  services.tailscale.enable = true;
   environment.systemPackages = [
     pkgs.unstable.claude-code
     pkgs.discord
@@ -25,8 +40,8 @@
   # virtualisation.virtualbox.host.enable = true;
   # users.extraGroups.vboxusers.members = [ "henry" ];
 
-  programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["henry"];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
+  # programs.virt-manager.enable = true;
+  # users.groups.libvirtd.members = ["henry"];
+  # virtualisation.libvirtd.enable = true;
+  # virtualisation.spiceUSBRedirection.enable = true;
 }

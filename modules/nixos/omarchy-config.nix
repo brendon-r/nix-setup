@@ -4,7 +4,6 @@
   ];
 
   omarchy = {
-    hostname = "siegfried";
     full_name = "Henry Sipp";
     email_address = "hesipp@gmail.com";
     theme = "gruvbox";

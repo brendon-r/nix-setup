@@ -12,6 +12,7 @@
   home.homeDirectory = "/home/henry";
   home.stateVersion = "25.05";
 
+
   programs.home-manager.enable = true;
 
   wayland.windowManager.hyprland.settings = {
@@ -25,6 +26,8 @@
 
     input = {
       kb_options = "ctrl:nocaps";
+      accel_profile = "flat";
+      sensitivity = 0.5;
       touchpad = {
         clickfinger_behavior = 2;
         natural_scroll = true;

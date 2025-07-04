@@ -20,8 +20,6 @@
   ];
 
   services.fwupd.enable = true;
-  time.timeZone = "America/Chicago";
-
   # Fan control
   programs.fw-fanctrl.enable = true;
 
@@ -39,23 +37,6 @@
     systemd-boot = {
       enable = true;
       # configurationLimit = 4;
-    };
-  };
-
-  nixpkgs = {
-    overlays = [
-      # outputs.overlays.additions
-      # outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  nix = {
-    settings = {
-      experimental-features = "nix-command flakes";
     };
   };
 

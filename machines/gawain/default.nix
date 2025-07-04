@@ -8,23 +8,17 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.default
-    inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
-    inputs.fw-fanctrl.nixosModules.default
-
     outputs.nixosModules.berkeley-mono
     outputs.nixosModules.omarchy-config
 
-    ../../modules/users/henry.nix # Includes home-manager config
     ./hardware-configuration.nix
+    ../../modules/users/henry.nix # Includes home-manager config
+    ../common
+    ../common/gaming.nix
   ];
 
-  environment.systemPackages = [
-    pkgs.unstable.claude-code 
-    pkgs.discord
-  ];
-
-  time.timeZone = "America/Chicago";
   home-manager.useGlobalPkgs = true;
+  home-manager.backupFileExtension = "backup";
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   boot.loader = {
@@ -36,19 +30,30 @@
     };
   };
 
-  nixpkgs = {
-    overlays = [
-      # outputs.overlays.additions
-      # outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  nix.settings.experimental-features = "nix-command flakes";
+  omarchy.monitors = [
+    "DP-1, 3840x2160@240, 0x0, 1.5" 
+  ];
 
   networking.hostName = "gawain";
   system.stateVersion = "25.05";
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    open = true;
+    nvidiaSettings = true;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics.enable = true;
+
+  # TODO: Move to omarch-nix?
+  # wayland.windowManager.hyprland.settings = {
+  #   # Environment variables
+  #   env = [
+  #     "NVD_BACKEND,direct"
+  #     "LIBVA_DRIVER_NAME,nvidia"
+  #     "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+  #   ];
+  # };
+
 }

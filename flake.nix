@@ -50,6 +50,13 @@
           ./machines/siegfried
         ];
       };
+
+       gawain = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./machines/gawain
+        ];
+      };
     };
   };
 }
