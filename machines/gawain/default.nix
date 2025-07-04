@@ -46,14 +46,4 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
 
-  # TODO: Move to omarch-nix?
-  # wayland.windowManager.hyprland.settings = {
-  #   # Environment variables
-  #   env = [
-  #     "NVD_BACKEND,direct"
-  #     "LIBVA_DRIVER_NAME,nvidia"
-  #     "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-  #   ];
-  # };
-
 }
