@@ -15,13 +15,13 @@
   programs.home-manager.enable = true;
 
   wayland.windowManager.hyprland.settings = {
-    "$terminal" = "alacritty";
-    "$fileManager" = "nautilus --new-window";
-    "$browser" = "chromium --new-window --ozone-platform=wayland";
-    "$music" = "spotify";
-    "$passwordManager" = "1password";
-    "$messenger" = "telegram-desktop";
-    "$webapp" = "$browser --app";
+    # "$terminal" = "ghostty";
+    # "$fileManager" = "nautilus --new-window";
+    # "$browser" = "chromium --new-window --ozone-platform=wayland";
+    # "$music" = "spotify";
+    # "$passwordManager" = "1password";
+    # "$messenger" = "telegram-desktop";
+    # "$webapp" = "$browser --app";
 
     input = {
       kb_options = "ctrl:nocaps";

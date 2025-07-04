@@ -14,15 +14,10 @@
     outputs.nixosModules.berkeley-mono
     outputs.nixosModules.omarchy-config
 
-    ../../modules/users/henry.nix # Includes home-manager config
     ./hardware-configuration.nix
+    ../common
+    ../../modules/users/henry.nix # Includes home-manager config
   ];
-
-  environment.systemPackages = [
-    pkgs.unstable.claude-code 
-    pkgs.discord
-  ];
-
 
   services.fwupd.enable = true;
   time.timeZone = "America/Chicago";
@@ -35,6 +30,9 @@
     inherit inputs outputs;
   };
 
+  networking.hostName = "siegfried";
+  system.stateVersion = "25.05";
+  security.polkit.enable = true;
   boot.loader = {
     timeout = 0;
     efi.canTouchEfiVariables = true;
@@ -55,25 +53,10 @@
     };
   };
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
+  nix = {
     settings = {
-      # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
-      flake-registry = "";
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
     };
-    # Opinionated: disable channels
-    channel.enable = false;
-
-    # Opinionated: make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  networking.hostName = "siegfried";
-  system.stateVersion = "25.05";
 }
