@@ -27,7 +27,7 @@
     input = {
       kb_options = "ctrl:nocaps";
       accel_profile = "flat";
-      sensitivity = 0.5;
+      sensitivity = 0.25;
       touchpad = {
         clickfinger_behavior = 2;
         natural_scroll = true;

@@ -45,5 +45,6 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
+  services.samba.enable = true;
 
 }
