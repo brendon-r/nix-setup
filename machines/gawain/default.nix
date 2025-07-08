@@ -13,13 +13,15 @@
 
     ./hardware-configuration.nix
     ../../modules/users/henry.nix # Includes home-manager config
-    ../common
+    ../common/global.nix
+    ../common/desktop.nix
     ../common/gaming.nix
   ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  home-manager.users.henry = import ../../home/henry;
 
   boot.loader = {
     timeout = 0;

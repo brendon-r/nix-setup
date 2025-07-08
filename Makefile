@@ -8,8 +8,8 @@ nixos:
 nixos-oma:
 	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/henry/Developer/omarchy-nix
 
-check-oma:
-	nix flake check --override-input omarchy path:/home/henry/Developer/omarchy-nix
+nixos-homelab:
+	nixos-rebuild switch --flake .#homelab --target-host henry@192.168.1.121 --use-remote-sudo
 
 macos:
 	sudo darwin-rebuild switch --flake .#

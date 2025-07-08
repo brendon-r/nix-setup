@@ -14,12 +14,14 @@
     outputs.nixosModules.berkeley-mono
     outputs.nixosModules.omarchy-config
 
+    ../../modules/users/henry.nix 
     ./hardware-configuration.nix
-    ../common
-    ../../modules/users/henry.nix # Includes home-manager config
+
+    ../common/global.nix
+    ../common/desktop.nix
   ];
 
-  services.fwupd.enable = true;
+  home-manager.users.henry = import ../../home/henry;
   # Fan control
   programs.fw-fanctrl.enable = true;
 
@@ -27,6 +29,7 @@
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
   };
+  services.fwupd.enable = true;
 
   networking.hostName = "siegfried";
   system.stateVersion = "25.05";

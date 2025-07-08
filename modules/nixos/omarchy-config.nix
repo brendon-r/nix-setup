@@ -6,10 +6,16 @@
   omarchy = {
     full_name = "Henry Sipp";
     email_address = "hesipp@gmail.com";
-    theme = "gruvbox";
+    theme = "tokyo-night";
     primary_font = "Berkeley Mono";
     vscode_settings = {
       "editor.fontFamily" = "Berkeley Mono";
+      "editor.minimap.enabled" = false;
+      "vim.useCtrlKeys" = false;
+      "[typescriptreact]" = {
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
     };
     quick_app_bindings = [
       "SUPER, A, exec, $webapp=https://claude.ai"

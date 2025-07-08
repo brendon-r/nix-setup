@@ -14,6 +14,9 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     omarchy.url = "github:henrysipp/omarchy-nix";
     omarchy.inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +32,7 @@
     self,
     nixpkgs,
     home-manager,
+    disko,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -46,15 +50,21 @@
     nixosConfigurations = {
       siegfried = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./machines/siegfried
-        ];
+        modules = [ ./machines/siegfried ];
       };
 
-       gawain = nixpkgs.lib.nixosSystem {
+      gawain = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./machines/gawain
+        modules = [ ./machines/gawain ];
+      };
+
+      # nixos-anywhere --flake .#homelab --generate-hardware-config nixos-generate-config ./machines/homelab/hardware-configuration.nix <hostname>
+      homelab = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [ 
+          disko.nixosModules.disko
+          ./machines/homelab 
         ];
       };
     };
