@@ -2,6 +2,7 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -12,8 +13,27 @@
   home.homeDirectory = "/home/henry";
   home.stateVersion = "25.05";
 
-
   programs.home-manager.enable = true;
+
+  programs.ssh = {
+    enable = true;
+    # extraConfig = ''
+    #   Host *
+    #     IdentityAgent ~/.1password/agent.sock
+    # '';
+  };
+
+  programs.git = {
+    extraConfig = {
+      credential.helper = "store";
+
+      # gpg.format = "ssh";
+      # gpg."ssh".program = lib.getExe' pkgs._1password-gui "op-ssh-sign";
+      # commit.gpgsign = true;
+      # user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjU7xEhfQl6Y2jwuH1po4xK8x6PdXejq60Du4YYJhi5";
+      # push.autoSetupRemote = true;
+    };
+  };
 
   wayland.windowManager.hyprland.settings = {
     # "$terminal" = "ghostty";

@@ -1,4 +1,4 @@
-{pkgs, outputs, ...}: {
+{pkgs, lib, outputs, ...}: {
 
   time.timeZone = "America/Chicago";
   nixpkgs = {
