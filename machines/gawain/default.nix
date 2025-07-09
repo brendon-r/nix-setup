@@ -33,7 +33,7 @@
   };
 
   omarchy.monitors = [
-    "DP-1, 3840x2160@240, 0x0, 1.5" 
+    "DP-3, 3840x2160@240, 0x0, 1.5" 
   ];
 
   networking.hostName = "gawain";

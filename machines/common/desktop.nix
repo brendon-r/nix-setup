@@ -2,7 +2,7 @@
   home-manager.backupFileExtension = "backup";
   environment.systemPackages = [
     pkgs.unstable.claude-code
-    pkgs.discord
+    pkgs.unstable.discord
     pkgs.obs-studio
     pkgs.tdesktop
     pkgs.nixos-anywhere
