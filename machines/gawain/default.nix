@@ -20,7 +20,7 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  home-manager.extraSpecialArgs = {inherit inputs outputs;};
   home-manager.users.henry = import ../../home/henry;
 
   boot.loader = {
@@ -33,7 +33,7 @@
   };
 
   omarchy.monitors = [
-    "DP-3, 3840x2160@240, 0x0, 1.5" 
+    "DP-3, 3840x2160@240, 0x0, 1.5"
   ];
 
   networking.hostName = "gawain";
@@ -45,8 +45,6 @@
     open = true;
     nvidiaSettings = true;
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.graphics.enable = true;
-  services.samba.enable = true;
-
 }

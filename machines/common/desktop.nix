@@ -1,4 +1,8 @@
-{pkgs, outputs, ...}: {
+{
+  pkgs,
+  outputs,
+  ...
+}: {
   home-manager.backupFileExtension = "backup";
   environment.systemPackages = [
     pkgs.unstable.claude-code
@@ -15,7 +19,7 @@
       wlrobs
       obs-backgroundremoval
       obs-pipewire-audio-capture
-      obs-vaapi 
+      obs-vaapi
       obs-gstreamer
       obs-vkcapture
     ];
