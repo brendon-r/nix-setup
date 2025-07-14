@@ -31,6 +31,21 @@
       "credentials=${config.sops.templates."cifs-credentials".path}"
     ];
   };
+
+  fileSystems."/mnt/net-photo" = {
+    device = "//192.168.3.101/photo";
+    fsType = "cifs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "credentials=${config.sops.templates."cifs-credentials".path}"
+
+      "noperm"
+      "file_mode=0777"
+      "dir_mode=0777"
+    ];
+  };
+
   fileSystems."/mnt/net-share" = {
     device = "//192.168.3.101/Family";
     fsType = "cifs";

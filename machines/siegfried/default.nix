@@ -12,17 +12,23 @@
     inputs.fw-fanctrl.nixosModules.default
 
     outputs.nixosModules.berkeley-mono
-    outputs.nixosModules.omarchy-config
+    # outputs.nixosModules.omarchy-config
 
     ../../modules/users/henry.nix
     ./hardware-configuration.nix
 
     ../common/global.nix
     ../common/desktop.nix
-    # ../common/samba.nix
+    ../common/dev.nix
+    ../common/samba.nix
+
+    ../common/packages.nix
+
+    ../common/gnome
   ];
 
   home-manager.users.henry = import ../../home/henry;
+  environment.systemPackages = [pkgs.filezilla];
   # Fan control
   programs.fw-fanctrl.enable = true;
   home-manager.useGlobalPkgs = true;

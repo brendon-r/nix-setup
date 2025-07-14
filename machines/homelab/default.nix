@@ -1,10 +1,13 @@
 {
   pkgs,
   inputs,
+  outputs,
   modulesPath,
   ...
 }: {
   imports = [
+    inputs.sipp-family.nixosModules.default
+
     # inputs.disko.nixosModules.disko
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -14,14 +17,16 @@
     ../../modules/users/henry.nix
 
     ../common/global.nix
-    ../common/nginx.nix
-    ../common/homelab.nix
-    ../common/home-assistant.nix
+    ../common/dev.nix
+    ../common/homelab/nginx.nix
+    ../common/homelab/homelab.nix
+    ../common/homelab/home-assistant.nix
+    ../common/homelab/nextcloud.nix
+    ../common/homelab/immich.nix
     ../common/samba.nix
-    ../common/nextcloud.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [8123];
+  networking.firewall.allowedTCPPorts = [8123 3000];
 
   services.plex = {
     enable = true;
@@ -43,4 +48,9 @@
     };
   };
   system.stateVersion = "25.05";
+
+  services.sippFamily = {
+    enable = true;
+    port = 3000;
+  };
 }

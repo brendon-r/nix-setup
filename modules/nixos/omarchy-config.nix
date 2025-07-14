@@ -6,7 +6,7 @@
   omarchy = {
     full_name = "Henry Sipp";
     email_address = "hesipp@gmail.com";
-    theme = "tokyo-night";
+    theme = "tokyo-night-light";
     primary_font = "Berkeley Mono";
     vscode_settings = {
       "editor.fontFamily" = "Berkeley Mono";

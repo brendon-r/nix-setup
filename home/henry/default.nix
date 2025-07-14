@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    inputs.omarchy.homeManagerModules.default
+    # inputs.omarchy.homeManagerModules.default
   ];
 
   home.username = "henry";
@@ -24,14 +24,18 @@
   };
 
   programs.git = {
+    enable = true;
+    userName = "Henry Sipp";
+    userEmail = "henry.sipp@hey.com";
     extraConfig = {
       credential.helper = "store";
+    };
+  };
 
-      # gpg.format = "ssh";
-      # gpg."ssh".program = lib.getExe' pkgs._1password-gui "op-ssh-sign";
-      # commit.gpgsign = true;
-      # user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjU7xEhfQl6Y2jwuH1po4xK8x6PdXejq60Du4YYJhi5";
-      # push.autoSetupRemote = true;
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper = {
+      enable = true;
     };
   };
 
