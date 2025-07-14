@@ -38,6 +38,15 @@
     '';
   };
 
+  services.nginx.virtualHosts."default" = {
+    default = true;
+    forceSSL = true;
+    useACMEHost = "sipp.family";
+    locations."/" = {
+      return = "444"; # Close connection without response
+    };
+  };
+
   services.nginx.virtualHosts."sipp.family" = {
     forceSSL = true;
     useACMEHost = "sipp.family";
@@ -49,6 +58,7 @@
 
   # Home Assistant virtual host - simple version
   services.nginx.virtualHosts."home.sipp.family" = {
+    serverName = "home.sipp.family";
     forceSSL = true;
     useACMEHost = "sipp.family";
     locations."/" = {
@@ -59,20 +69,27 @@
 
   # Let Nextcloud manage its own virtualHost
   services.nginx.virtualHosts."cloud.sipp.family" = {
-    forceSSL = true;
-    useACMEHost = "sipp.family";
-  };
-
-  services.nginx.virtualHosts."plex.sipp.family" = {
+    serverName = "cloud.sipp.family";
     forceSSL = true;
     useACMEHost = "sipp.family";
     locations."/" = {
-      proxyPass = "http://localhost:32400";
+      proxyPass = "http://10.50.0.2";
+      proxyWebsockets = true;
+    };
+  };
+
+  services.nginx.virtualHosts."plex.sipp.family" = {
+    serverName = "plex.sipp.family";
+    forceSSL = true;
+    useACMEHost = "sipp.family";
+    locations."/" = {
+      proxyPass = "http://10.50.0.3:32400";
       proxyWebsockets = true;
     };
   };
 
   services.nginx.virtualHosts."photos.sipp.family" = {
+    serverName = "photos.sipp.family";
     forceSSL = true;
     useACMEHost = "sipp.family";
     locations."/" = {

@@ -18,20 +18,18 @@
 
     ../common/global.nix
     ../common/dev.nix
+    ../common/samba.nix
+
+    # Services
     ../common/homelab/nginx.nix
     ../common/homelab/homelab.nix
     ../common/homelab/home-assistant.nix
     ../common/homelab/nextcloud.nix
     ../common/homelab/immich.nix
-    ../common/samba.nix
+    ../common/homelab/plex.nix
   ];
 
   networking.firewall.allowedTCPPorts = [8123 3000];
-
-  services.plex = {
-    enable = true;
-    openFirewall = true;
-  };
 
   services.roon-server = {
     enable = true;

@@ -5,44 +5,78 @@
   pkgs,
   ...
 }: {
-  environment.etc."nextcloud-admin-pass".text = "PWD";
-  services.nextcloud = {
-    enable = true;
-    hostName = "cloud.sipp.family";
-
-    # Need to manually increment with every major upgrade.
-    package = pkgs.nextcloud31;
-
-    # Let NixOS install and configure the database automatically.
-    database.createLocally = true;
-
-    # Let NixOS install and configure Redis caching automatically.
-    configureRedis = true;
-
-    # Increase the maximum file upload size to avoid problems uploading videos.
-    maxUploadSize = "16G";
-    https = true;
-
-    autoUpdateApps.enable = true;
-    extraAppsEnable = true;
-    extraApps = with config.services.nextcloud.package.packages.apps; {
-      # List of apps we want to install and are already packaged in
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-      # inherit calendar contacts mail notes onlyoffice tasks;
-
-      # Custom app installation example.
-      # cookbook = pkgs.fetchNextcloudApp rec {
-      #   url =
-      #     "https://github.com/nextcloud/cookbook/releases/download/v0.10.2/Cookbook-0.10.2.tar.gz";
-      #   sha256 = "sha256-XgBwUr26qW6wvqhrnhhhhcN4wkI+eXDHnNSm1HDbP6M=";
-      # };
+  containers.nextcloud = {
+    autoStart = true;
+    privateNetwork = true;
+    hostAddress = "10.50.0.1";
+    localAddress = "10.50.0.2";
+    bindMounts = {
+      "/secrets" = {
+        hostPath = "/persistent/nextcloud/secrets";
+      };
+      "/var/lib/nextcloud/config" = {
+        hostPath = "/persistent/nextcloud/config";
+        isReadOnly = false;
+      };
+      "/var/lib/nextcloud/data" = {
+        hostPath = "/mnt/box-plain/nextcloud/data";
+        isReadOnly = false;
+      };
+      "/var/lib/postgresql" = {
+        hostPath = "/persistent/nextcloud/db";
+        isReadOnly = false;
+      };
     };
-
     config = {
-      # overwriteProtocol = "https";
-      dbtype = "sqlite";
-      adminuser = "admin";
-      adminpassFile = "/etc/nextcloud-admin-pass";
-    };
+      pkgs,
+      config,
+      lib,
+      ...
+    }:
+      with lib; {
+        networking.firewall.enable = false;
+        environment.etc."nextcloud-admin-pass".text = "PWD";
+
+        # sops.secrets.nextcloud = {};
+        # sops.templates.nextcloud.content = ''
+        #   ${config.sops.nextcloud.admin_password}
+        # '';
+        services.nextcloud = {
+          enable = true;
+          hostName = "cloud.sipp.family";
+          # hostName = "10.50.0.2";
+          package = pkgs.nextcloud31;
+          https = true;
+          database.createLocally = true;
+          configureRedis = true;
+          config = {
+            dbtype = "pgsql";
+            adminuser = "henry.sipp@hey.com";
+            adminpassFile = "/secrets/pw";
+            # adminpassFile = config.sops.templates.secrets.nextcloud.path;
+          };
+        };
+      };
   };
+
+  # Automated backup service
+  # systemd.services.nextcloud-backup = {
+  #   description = "Backup Nextcloud configuration and database";
+  #   startAt = "04:00:00";
+  #   path = with pkgs; [
+  #     gnutar
+  #     gzip
+  #     findutils
+  #   ];
+  #   script = ''
+  #     find /mnt/box-plain/nextcloud/backup -name "backup_*.tar.gz" -mtime +14 -delete
+  #     nixos-container run nextcloud -- sudo -u postgres pg_dumpall > db_dump.sql
+  #     tar -czf "/mnt/box-plain/nextcloud/backup/backup_$(date +\"%Y-%m-%d_%H-%M-%S\").tar.gz" config db_dump.sql
+  #   '';
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     User = "root"; # Need root to access /persistent
+  #     WorkingDirectory = "/persistent/nextcloud";
+  #   };
+  # };
 }
