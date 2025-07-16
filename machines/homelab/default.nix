@@ -6,8 +6,6 @@
   ...
 }: {
   imports = [
-    inputs.sipp-family.nixosModules.default
-
     # inputs.disko.nixosModules.disko
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -21,12 +19,15 @@
     ../common/samba.nix
 
     # Services
-    ../common/homelab/nginx.nix
     ../common/homelab/homelab.nix
     ../common/homelab/home-assistant.nix
     ../common/homelab/nextcloud.nix
     ../common/homelab/immich.nix
     ../common/homelab/plex.nix
+    ../common/homelab/cloudflare.nix
+    # ../common/homelab/nginx.nix
+    ../common/homelab/traefik.nix
+    # ../common/homelab/sonarr.nix
   ];
 
   networking.firewall.allowedTCPPorts = [8123 3000];
@@ -46,9 +47,4 @@
     };
   };
   system.stateVersion = "25.05";
-
-  services.sippFamily = {
-    enable = true;
-    port = 3000;
-  };
 }

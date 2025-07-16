@@ -3,16 +3,19 @@
   pkgs,
   ...
 }: {
-  containers.immich = {
+  containers.sonarr = {
     autoStart = true;
+    privateNetwork = true;
+    hostAddress = "10.50.0.1";
+    localAddress = "10.50.0.5";
 
     bindMounts = {
       "/var/lib" = {
-        hostPath = "/persistent/immich";
+        hostPath = "/persistent/sonarr";
         isReadOnly = false;
       };
-      "/mnt/net-photo/immich" = {
-        hostPath = "/mnt/net-photo/immich";
+      "/media" = {
+        hostPath = "/mnt/net-video";
         isReadOnly = false;
       };
     };
@@ -22,14 +25,10 @@
       pkgs,
       ...
     }: {
-      services.immich = {
+      services.sonarr = {
         enable = true;
-        port = 2283;
-        mediaLocation = "/mnt/net-photo/immich";
+        openFirewall = true;
       };
-
-      networking.firewall.allowedTCPPorts = [2283];
-
       system.stateVersion = "25.05";
     };
   };

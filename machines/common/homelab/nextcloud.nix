@@ -3,8 +3,15 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
+  sops.secrets.nextcloud = {};
+  sops.templates.nextcloud-admin-pass = {
+    content = ''${config.sops.placeholder.nextcloud}'';
+    path = "/persistent/nextcloud/secrets/nextcloud-admin-pass";
+  };
+
   containers.nextcloud = {
     autoStart = true;
     privateNetwork = true;
@@ -34,13 +41,10 @@
       ...
     }:
       with lib; {
-        networking.firewall.enable = false;
-        environment.etc."nextcloud-admin-pass".text = "PWD";
-
-        # sops.secrets.nextcloud = {};
-        # sops.templates.nextcloud.content = ''
-        #   ${config.sops.nextcloud.admin_password}
-        # '';
+        networking.firewall = {
+          enable = true;
+          allowedTCPPorts = [80 443];
+        };
         services.nextcloud = {
           enable = true;
           hostName = "cloud.sipp.family";
@@ -52,8 +56,7 @@
           config = {
             dbtype = "pgsql";
             adminuser = "henry.sipp@hey.com";
-            adminpassFile = "/secrets/pw";
-            # adminpassFile = config.sops.templates.secrets.nextcloud.path;
+            adminpassFile = "/secrets/nextcloud-admin-pass";
           };
         };
       };

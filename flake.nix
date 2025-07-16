@@ -25,11 +25,6 @@
     omarchy.inputs.nixpkgs.follows = "nixpkgs";
     omarchy.inputs.home-manager.follows = "home-manager";
 
-    sipp-family = {
-      url = "github:henrysipp/sipp-family";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     fw-fanctrl = {
       url = "github:TamtamHero/fw-fanctrl/packaging/nix";
       inputs.nixpkgs.follows = "nixpkgs";

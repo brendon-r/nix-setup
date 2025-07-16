@@ -1,5 +1,4 @@
 {...}: {
-
   # Holy crap this one was a pain to set up
   # All good?
   networking.nat = {
@@ -37,9 +36,14 @@
     };
     config = {pkgs, ...}: {
       nixpkgs.config.allowUnfree = true;
+      networking.firewall = {
+        enable = true;
+        allowedTCPPorts = [32400];
+        allowedUDPPorts = [1900 5353 32410 32412 32413 32414];
+      };
       services.plex = {
         enable = true;
-        openFirewall = true;
+        openFirewall = false;
         dataDir = "/var/lib/plex";
       };
       systemd.tmpfiles.rules = [

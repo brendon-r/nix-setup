@@ -664,28 +664,7 @@
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "omarchy": "omarchy",
-        "sipp-family": "sipp-family",
         "sops-nix": "sops-nix"
-      }
-    },
-    "sipp-family": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1752467179,
-        "narHash": "sha256-6/HpvClXCIMTC9SaIWhZZqtzd4xLZWWkRT9inuLAWZg=",
-        "owner": "henrysipp",
-        "repo": "sipp-family",
-        "rev": "7f3a9d8469bd80109b04a81d9778d269badaadb3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "henrysipp",
-        "repo": "sipp-family",
-        "type": "github"
       }
     },
     "sops-nix": {

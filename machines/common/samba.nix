@@ -12,7 +12,7 @@
     password=${config.sops.placeholder.nas_password}
   '';
   fileSystems."/mnt/net-music" = {
-    device = "//192.168.3.101/music";
+    device = "//192.168.1.101/music";
     fsType = "cifs";
 
     options = [
@@ -22,7 +22,7 @@
     ];
   };
   fileSystems."/mnt/net-video" = {
-    device = "//192.168.3.101/video";
+    device = "//192.168.1.101/video";
     fsType = "cifs";
 
     options = [
@@ -33,7 +33,7 @@
   };
 
   fileSystems."/mnt/net-photo" = {
-    device = "//192.168.3.101/photo";
+    device = "//192.168.1.101/photo";
     fsType = "cifs";
     options = [
       "noauto"
@@ -47,7 +47,7 @@
   };
 
   fileSystems."/mnt/net-share" = {
-    device = "//192.168.3.101/Family";
+    device = "//192.168.1.101/Family";
     fsType = "cifs";
 
     options = [

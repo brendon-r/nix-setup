@@ -28,14 +28,49 @@
     recommendedTlsSettings = true;
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
-
-    # If you need the map directive, it goes here at the http level
     appendHttpConfig = ''
       map $http_upgrade $connection_upgrade {
         default upgrade;
         "" close;
       }
+
+      # Rate limiting
+      limit_req_zone $binary_remote_addr zone=login:10m rate=5r/m;
+      limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
     '';
+  };
+
+  # Fail2ban for intrusion prevention
+  services.fail2ban = {
+    enable = true;
+    maxretry = 3;
+    bantime = "24h";
+
+    jails = {
+      nginx-http-auth = ''
+        enabled = true
+        filter = nginx-http-auth
+        logpath = /var/log/nginx/error.log
+        maxretry = 3
+        bantime = 24h
+      '';
+
+      nginx-limit-req = ''
+        enabled = true
+        filter = nginx-limit-req
+        logpath = /var/log/nginx/error.log
+        maxretry = 10
+        bantime = 24h
+      '';
+
+      nginx-bad-request = ''
+        enabled = true
+        filter = nginx-bad-request
+        logpath = /var/log/nginx/access.log
+        maxretry = 5
+        bantime = 24h
+      '';
+    };
   };
 
   services.nginx.virtualHosts."default" = {
@@ -44,15 +79,6 @@
     useACMEHost = "sipp.family";
     locations."/" = {
       return = "444"; # Close connection without response
-    };
-  };
-
-  services.nginx.virtualHosts."sipp.family" = {
-    forceSSL = true;
-    useACMEHost = "sipp.family";
-    locations."/" = {
-      proxyPass = "http://localhost:3000";
-      proxyWebsockets = true;
     };
   };
 
@@ -104,4 +130,14 @@
       '';
     };
   };
+
+  # services.nginx.virtualHosts."sonarr.sipp.family" = {
+  #   serverName = "sonarr.sipp.family";
+  #   forceSSL = true;
+  #   useACMEHost = "sipp.family";
+  #   locations."/" = {
+  #     proxyPass = "http://10.50.0.5:8989";
+  #     proxyWebsockets = true;
+  #   };
+  # };
 }
