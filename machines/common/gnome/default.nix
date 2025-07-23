@@ -9,11 +9,9 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-in-panel
     gnomeExtensions.just-perfection
-    gnomeExtensions.arc-mene
+    gnomeExtensions.arc-menu
     gnomeExtensions.paperwm
-
     gnome-tweaks
-
     vscode
   ];
 }

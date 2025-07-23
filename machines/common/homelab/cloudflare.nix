@@ -12,9 +12,6 @@
       # TODO: Fill in tunnel UUID and configuration
       "4cc24480-547c-4c48-8eb0-9a0a786fbe35" = {
         credentialsFile = config.sops.secrets.cloudflare_tunnel_credentials.path;
-        # ingress = {
-        #   "" = "http://localhost:80";
-        # };
         default = "http_status:404";
       };
     };

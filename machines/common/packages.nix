@@ -29,6 +29,7 @@
 
     # GUIs
     chromium
+    firefox
     obsidian
     vlc
 
