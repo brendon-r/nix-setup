@@ -12,7 +12,7 @@
     inputs.fw-fanctrl.nixosModules.default
 
     outputs.nixosModules.berkeley-mono
-    # outputs.nixosModules.omarchy-config
+    outputs.nixosModules.omarchy-config
 
     ../../modules/users/henry.nix
     ./hardware-configuration.nix
@@ -24,10 +24,16 @@
 
     ../common/packages.nix
 
-    ../common/gnome
+    # ../common/gnome
   ];
 
-  home-manager.users.henry = import ../../home/henry;
+  home-manager.users.henry = {
+    imports = [
+      ../../home/henry
+      inputs.omarchy.homeManagerModules.default
+    ];
+  };
+
   environment.systemPackages = [pkgs.filezilla];
   # Fan control
   programs.fw-fanctrl.enable = true;

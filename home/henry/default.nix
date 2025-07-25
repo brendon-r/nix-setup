@@ -25,8 +25,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Henry Sipp";
-    userEmail = "henry.sipp@hey.com";
+    # userName = "Henry Sipp";
+    # userEmail = "henry.sipp@hey.com";
     extraConfig = {
       credential.helper = "store";
     };
@@ -65,6 +65,7 @@
       workspace_swipe = true;
     };
     bind = [
+      # Really make sure to disable middle click paste
       ",mouse:274, exec,"
     ];
   };

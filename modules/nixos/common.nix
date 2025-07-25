@@ -7,5 +7,6 @@
     ./jellyfin.nix
     ./plex.nix
     ./roon-server.nix
+    ./overseerr.nix
   ];
 }

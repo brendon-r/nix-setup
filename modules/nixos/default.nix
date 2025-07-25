@@ -9,4 +9,5 @@
   nginx-recommended = import ./nginx-recommended.nix;
   roon-server = import ./roon-server.nix;
   jellyfin = import ./jellyfin.nix;
+  overseerr = import ./overseerr.nix;
 }

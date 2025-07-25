@@ -66,5 +66,9 @@
   jellyfin.subDomainName = "jellyfin";
   jellyfin.baseDomainName = "sipp.family";
 
+  overseerr.enable = true;
+  overseerr.subDomainName = "overseerr";
+  overseerr.baseDomainName = "sipp.family";
+
   system.stateVersion = "25.05";
 }
