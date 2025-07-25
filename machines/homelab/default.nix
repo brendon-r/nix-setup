@@ -22,7 +22,7 @@
 
     # Services
     ../common/homelab/homelab.nix
-    ../common/homelab/cloudflare.nix
+    # ../common/homelab/cloudflare.nix
   ];
 
   networking.firewall.enable = true;
