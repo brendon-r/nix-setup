@@ -15,7 +15,7 @@
 
     acmeEmail = lib.mkOption {
       type = lib.types.str;
-      default = "henry.sipp@hey.com";
+      default = "brendon.robey@gmail.com";
       description = "Email address for ACME certificate registration";
     };
   };

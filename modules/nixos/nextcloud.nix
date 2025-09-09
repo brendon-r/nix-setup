@@ -82,7 +82,7 @@ in {
             configureRedis = true;
             config = {
               dbtype = "pgsql";
-              adminuser = "henry.sipp@hey.com";
+              adminuser = "brendon.robey@gmail.com";
 
               adminpassFile = "/secrets/nextcloud-admin-pass";
               # adminpassFile = cfg.adminPassFile;

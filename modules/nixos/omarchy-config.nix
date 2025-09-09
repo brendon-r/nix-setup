@@ -8,8 +8,8 @@
   ];
 
   omarchy = {
-    full_name = "Henry Sipp";
-    email_address = "hesipp@gmail.com";
+    full_name = "Brendon Robey";
+    email_address = "brendon.robey@gmail.com";
     theme = "tokyo-night";
     primary_font = "Berkeley Mono";
     exclude_packages = with pkgs; [

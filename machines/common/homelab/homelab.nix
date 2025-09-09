@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  nix.settings.trusted-users = ["henry" "wheel"];
+  nix.settings.trusted-users = ["brendon" "wheel"];
   environment.systemPackages = with pkgs; [
     git
     neovim
@@ -20,7 +20,7 @@
 
   security.sudo.extraRules = [
     {
-      users = ["henry"];
+      users = ["brendon"];
       commands = [
         {
           command = "ALL";

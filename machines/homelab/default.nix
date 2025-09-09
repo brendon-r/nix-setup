@@ -13,7 +13,7 @@
     ./hardware-configuration.nix
     ./disk-config.nix
 
-    ../../modules/users/henry.nix
+    ../../modules/users/brendon.nix
     ../../modules/nixos/common.nix
 
     ../common/global.nix
@@ -60,7 +60,7 @@
 
   nginxRecommended.enable = true;
   nginxRecommended.baseDomainName = "sipp.family";
-  nginxRecommended.acmeEmail = "henry.sipp@hey.com";
+  nginxRecommended.acmeEmail = "brendon.robey@gmail.com";
 
   jellyfin.enable = true;
   jellyfin.subDomainName = "jellyfin";

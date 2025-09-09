@@ -10,7 +10,7 @@
   security.acme = {
     acceptTerms = true;
     defaults = {
-      email = "henry.sipp@hey.com";
+      email = "brendon.robey@gmail.com";
     };
     certs."sipp.family" = {
       domain = "*.sipp.family";
