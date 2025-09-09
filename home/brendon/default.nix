@@ -42,10 +42,10 @@
   wayland.windowManager.hyprland.settings = {
     # "$terminal" = "ghostty";
     # "$fileManager" = "nautilus --new-window";
-    # "$browser" = "chromium --new-window --ozone-platform=wayland";
+     "$browser" = "brave --new-window --ozone-platform=wayland";
     # "$music" = "spotify";
     # "$passwordManager" = "1password";
-    # "$messenger" = "telegram-desktop";
+     "$messenger" = "signal-desktop";
     # "$webapp" = "$browser --app";
 
     input = {
