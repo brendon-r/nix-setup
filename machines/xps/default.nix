@@ -31,7 +31,10 @@
       inputs.omarchy.homeManagerModules.default
     ];
   };
-
+  
+  omarchy.monitors = [
+    "eDP-1, 1920x1080@59.93400, 0x0, 1.25"
+  ];
   environment.systemPackages = [pkgs.filezilla];
   # Fan control
   #programs.fw-fanctrl.enable = true;
