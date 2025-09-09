@@ -28,9 +28,10 @@
     fastfetch
 
     # GUIs
-    chromium
-    firefox
-    obsidian
+    brave
+    #chromium
+    #firefox
+    #obsidian
     vlc
 
     # Can't find this in nixpkgs!
@@ -45,14 +46,14 @@
     # signal-desktop
 
     # Commercial GUIs
-    typora
-    dropbox
-    spotify
+    #typora
+    #dropbox
+    #spotify
     # zoom
 
     # Development tools
-    github-desktop
-    gh
+    #github-desktop
+    #gh
 
     # Containers
     docker-compose

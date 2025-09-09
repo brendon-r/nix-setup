@@ -1,5 +1,5 @@
 {
-  description = "Henry's Nix Config";
+  description = "Brendon's Nix Config";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
@@ -41,7 +41,6 @@
     inherit (self) outputs;
     systems = [
       "x86_64-linux"
-      "aarch64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
@@ -51,24 +50,9 @@
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
     nixosConfigurations = {
-      siegfried = nixpkgs.lib.nixosSystem {
+      xps = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./machines/siegfried];
-      };
-
-      gawain = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./machines/gawain];
-      };
-
-      # nixos-anywhere --flake .#homelab --generate-hardware-config nixos-generate-config ./machines/homelab/hardware-configuration.nix nixos@<hostname>
-      homelab = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          disko.nixosModules.disko
-          ./machines/homelab
-        ];
+        modules = [./machines/xps];
       };
     };
   };

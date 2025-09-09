@@ -9,24 +9,24 @@
     # inputs.omarchy.homeManagerModules.default
   ];
 
-  home.username = "henry";
-  home.homeDirectory = "/home/henry";
+  home.username = "brendon";
+  home.homeDirectory = "/home/brendon";
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
 
-  programs.ssh = {
-    enable = true;
+#  programs.ssh = {
+#    enable = true;
     # extraConfig = ''
     #   Host *
     #     IdentityAgent ~/.1password/agent.sock
     # '';
-  };
+#  };
 
   programs.git = {
     enable = true;
-    # userName = "Henry Sipp";
-    # userEmail = "henry.sipp@hey.com";
+    userName = "Brendon Robey";
+    userEmail = "brendon.robey@gmail.com";
     extraConfig = {
       credential.helper = "store";
     };

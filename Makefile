@@ -3,16 +3,11 @@ update:
 	sudo nix flake update
 	
 nixos:
-	sudo nixos-rebuild switch --flake . --impure
+	sudo nixos-rebuild switch --flake . 
 
-nixos-oma:
-	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/henry/Developer/omarchy-nix
-
-nixos-homelab:
-	nixos-rebuild switch --flake .#homelab --target-host henry@homelab-1 --use-remote-sudo --show-trace 
-
-macos:
-	sudo darwin-rebuild switch --flake .#
+# Possibly not needed since I won't develop Omarchy
+#nixos-oma:
+#	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/brendon/Developer/omarchy-nix
 
 gc: 
 	# run garbage collection
