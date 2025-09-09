@@ -36,8 +36,11 @@
     "eDP-1, 1920x1080@59.93400, 0x0, 1.25"
   ];
   environment.systemPackages = [pkgs.filezilla];
+
   # Fan control
   #programs.fw-fanctrl.enable = true;
+  programs.regreet.enable = true;
+
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
