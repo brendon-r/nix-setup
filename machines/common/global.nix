@@ -21,7 +21,7 @@
     };
   };
   nix.settings.experimental-features = "nix-command flakes";
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   environment.systemPackages = [pkgs.sops pkgs.btop];
 
