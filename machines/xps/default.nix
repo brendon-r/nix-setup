@@ -42,6 +42,7 @@
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
   };
+  home-manager.backupFileExtension = "backup";
   #services.fwupd.enable = true;
   networking.hostName = "xps";
   system.stateVersion = "25.05";
