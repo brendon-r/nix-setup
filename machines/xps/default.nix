@@ -17,7 +17,7 @@
 
     ../common/global.nix
 #    ../common/desktop.nix
-    ../common/dev.nix
+#    ../common/dev.nix
 #    ../common/samba.nix
 
     ../common/packages.nix
