@@ -13,7 +13,6 @@
     theme = "tokyo-night";
     primary_font = "Berkeley Mono";
     exclude_packages = with pkgs; [
-      signal-desktop
     ];
     vscode_settings = {
       "editor.fontFamily" = "Berkeley Mono";
