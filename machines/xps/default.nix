@@ -16,6 +16,7 @@
     ./hardware-configuration.nix
 
     ../common/global.nix
+    ../common/gaming.nix
 #    ../common/desktop.nix
 #    ../common/dev.nix
 #    ../common/samba.nix
