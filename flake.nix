@@ -52,7 +52,10 @@
     nixosConfigurations = {
       xps = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./machines/xps];
+        modules = [
+	  nixos-hardware.nixosModules.dell-xps-13-9350
+	  ./machines/xps
+        ];
       };
     };
   };
